@@ -52,6 +52,8 @@ final class MainTabBarController: UITabBarController {
     ) -> UINavigationController {
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = .background
+        appearance.shadowImage = UIImage()
+        appearance.shadowColor = nil
 
         tabBar.standardAppearance = appearance
         tabBar.scrollEdgeAppearance = appearance
