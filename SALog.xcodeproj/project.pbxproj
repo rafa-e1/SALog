@@ -23,6 +23,7 @@
 		058266CD2D27C5A100218960 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058266CC2D27C5A100218960 /* BaseViewController.swift */; };
 		058266CF2D27C5B400218960 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058266CE2D27C5B400218960 /* BaseView.swift */; };
 		058266D12D27C6DB00218960 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058266D02D27C6DB00218960 /* Colors.xcassets */; };
+		058267352D2BCF5F00218960 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058267342D2BCF5F00218960 /* SearchView.swift */; };
 		D02987EC61866F0C6DB665B1 /* Pods_SALog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		058266CC2D27C5A100218960 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		058266CE2D27C5B400218960 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		058266D02D27C6DB00218960 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		058267342D2BCF5F00218960 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SALog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBEA1788124AE2C50D1FBEB /* Pods-SALog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.release.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.release.xcconfig"; sourceTree = "<group>"; };
 		DD6597661C5AF620FEB897AD /* Pods-SALog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.debug.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				058266C12D27C48B00218960 /* Base */,
+				058267332D2BCF4A00218960 /* Component */,
 				058266C02D27C48700218960 /* Extension */,
 			);
 			path = Utils;
@@ -190,6 +193,14 @@
 				058266CE2D27C5B400218960 /* BaseView.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		058267332D2BCF4A00218960 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				058267342D2BCF5F00218960 /* SearchView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		0D10B9C0A37C6FC5D3E78A9D /* Pods */ = {
@@ -335,6 +346,7 @@
 				058266C52D27C4FD00218960 /* UIView+.swift in Sources */,
 				058266C92D27C55A00218960 /* BaseCollectionViewCell.swift in Sources */,
 				058266B82D27BE8400218960 /* SearchViewController.swift in Sources */,
+				058267352D2BCF5F00218960 /* SearchView.swift in Sources */,
 				058266B52D27BDE800218960 /* MainTabBarController.swift in Sources */,
 				058266C72D27C52000218960 /* UIStackView+.swift in Sources */,
 				058266BA2D27BE9E00218960 /* BlackListViewController.swift in Sources */,
