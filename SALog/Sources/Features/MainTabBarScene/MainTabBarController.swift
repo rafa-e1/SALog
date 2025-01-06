@@ -26,6 +26,7 @@ final class MainTabBarController: UITabBarController {
             selectedImage: "magnifyingglass",
             rootViewController: SearchViewController()
         )
+        search.setNavigationBarHidden(true, animated: false)
 
         let blackList = createNavigationController(
             title: "블랙 리스트",
