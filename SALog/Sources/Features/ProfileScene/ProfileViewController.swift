@@ -15,6 +15,11 @@ final class ProfileViewController: BaseViewController {
 
     // MARK: - UI
 
+    private func setNavigationBarButtonItems() {
+        let rightBarButton = UIBarButtonItem(customView: copyButton)
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+
     override func setStyle() {
 
         copyButton.do {
