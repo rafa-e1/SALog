@@ -16,7 +16,6 @@ final class ProfileViewController: BaseViewController {
     // MARK: - UI
 
     override func setStyle() {
-        super.setStyle()
 
         copyButton.do {
             $0.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
