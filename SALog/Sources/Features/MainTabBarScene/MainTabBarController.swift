@@ -21,7 +21,7 @@ final class MainTabBarController: UITabBarController {
 
     private func configureViewControllers() {
         let search = createNavigationController(
-            title: "검색",
+            title: "",
             unselectedImage: "magnifyingglass",
             selectedImage: "magnifyingglass",
             rootViewController: SearchViewController()
@@ -29,14 +29,14 @@ final class MainTabBarController: UITabBarController {
         search.setNavigationBarHidden(true, animated: false)
 
         let blackList = createNavigationController(
-            title: "블랙 리스트",
+            title: "",
             unselectedImage: "person.crop.circle.badge.xmark",
             selectedImage: "person.crop.circle.badge.xmark",
             rootViewController: BlackListViewController()
         )
 
         let profile = createNavigationController(
-            title: "프로필",
+            title: "",
             unselectedImage: "person",
             selectedImage: "person.fill",
             rootViewController: ProfileViewController()
