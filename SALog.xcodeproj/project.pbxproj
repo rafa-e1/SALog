@@ -27,6 +27,7 @@
 		058267372D2BDA0C00218960 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058267362D2BDA0C00218960 /* UIButton+.swift */; };
 		058267392D2D096700218960 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058267382D2D096700218960 /* ProfileCell.swift */; };
 		0582673C2D2D197900218960 /* ProfileImageFullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */; };
+		0582673E2D2E8C0600218960 /* ProfileMenuTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */; };
 		D02987EC61866F0C6DB665B1 /* Pods_SALog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		058267362D2BDA0C00218960 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		058267382D2D096700218960 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageFullScreenView.swift; sourceTree = "<group>"; };
+		0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTabCell.swift; sourceTree = "<group>"; };
 		3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SALog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBEA1788124AE2C50D1FBEB /* Pods-SALog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.release.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.release.xcconfig"; sourceTree = "<group>"; };
 		DD6597661C5AF620FEB897AD /* Pods-SALog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.debug.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				058267382D2D096700218960 /* ProfileCell.swift */,
+				0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */,
 				058266BB2D27BEAC00218960 /* ProfileViewController.swift */,
 			);
 			path = ProfileScene;
@@ -361,6 +364,7 @@
 				058266B52D27BDE800218960 /* MainTabBarController.swift in Sources */,
 				058267392D2D096700218960 /* ProfileCell.swift in Sources */,
 				058266C72D27C52000218960 /* UIStackView+.swift in Sources */,
+				0582673E2D2E8C0600218960 /* ProfileMenuTabCell.swift in Sources */,
 				058266BA2D27BE9E00218960 /* BlackListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
