@@ -30,8 +30,8 @@ final class MainTabBarController: UITabBarController {
 
         let blackList = createNavigationController(
             title: "",
-            unselectedImage: "person.crop.circle.badge.xmark",
-            selectedImage: "person.crop.circle.badge.xmark",
+            unselectedImage: "xmark",
+            selectedImage: "xmark",
             rootViewController: BlackListViewController()
         )
 
