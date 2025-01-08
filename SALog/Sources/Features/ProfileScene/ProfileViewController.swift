@@ -22,7 +22,7 @@ final class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setNavigationBarButtonItems()
+        setNavigationBarStyle()
         setDelegates()
         registerCells()
     }
@@ -43,7 +43,7 @@ final class ProfileViewController: BaseViewController {
 
     // MARK: - UI
 
-    private func setNavigationBarButtonItems() {
+    private func setNavigationBarStyle() {
         let rightBarButton = UIBarButtonItem(customView: copyButton)
         navigationItem.rightBarButtonItem = rightBarButton
     }
