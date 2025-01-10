@@ -7,4 +7,9 @@
 
 import UIKit
 
-final class BlackListViewController: BaseViewController {}
+final class BlackListViewController: BaseViewController {
+
+    // MARK: - UI
+
+    override func setStyle() { super.setStyle() }
+}
