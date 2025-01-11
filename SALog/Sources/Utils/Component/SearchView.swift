@@ -19,7 +19,7 @@ final class SearchView: BaseView {
 
     override func setStyle() {
         textField.do {
-            $0.placeholder = "닉네임을 입력해주세요"
+            $0.placeholder = "닉네임을 입력해 주세요"
             $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
             $0.textColor = .darkGray
             $0.clearButtonMode = .whileEditing
