@@ -7,15 +7,22 @@
 
 import UIKit
 
+protocol ProfileMenuTabCellDelegate: AnyObject {
+    func didSelectTab(_ cell: ProfileMenuTabCell, index: Int)
+}
+
 final class ProfileMenuTabCell: BaseCollectionReusableView {
 
     // MARK: - Properties
 
+    weak var delegate: ProfileMenuTabCellDelegate?
+    private let menuTabs = ProfileMenuTab.allCases
+    private var selectedIndex: Int = 0
+
+    // MARK: - UI Properties
+
     private let menuStackView = UIStackView()
     private var menuButtons: [UIButton] = []
-
-    private let menu = ["기본 정보", "맵 숙련도", "랭크전 정보", "매칭 기록"]
-    private var selectedIndex: Int = 0
 
     // MARK: - Initializer
 
@@ -32,21 +39,32 @@ final class ProfileMenuTabCell: BaseCollectionReusableView {
     // MARK: - Actions
 
     @objc private func handleButtonTap(_ sender: UIButton) {
+        delegate?.didSelectTab(self, index: sender.tag)
         updateSelectedButton(to: sender.tag)
     }
 
     // MARK: - Helpers
 
+    func configureSelectedTab(_ selectedTab: ProfileMenuTab) {
+        let index = menuTabs.firstIndex(of: selectedTab) ?? 0
+        updateSelectedButton(to: index)
+    }
+
     private func updateSelectedButton(to index: Int) {
-        menuButtons[selectedIndex].isSelected = false
+        for (i, button) in menuButtons.enumerated() {
+            button.isSelected = (i == index)
+            button.setTitleColor(
+                button.isSelected ? .black : .lightGray,
+                for: .normal
+            )
+        }
         selectedIndex = index
-        menuButtons[selectedIndex].isSelected = true
     }
 
     private func configureMenuButtons() {
-        for (index, title) in menu.enumerated() {
+        for (index, tab) in menuTabs.enumerated() {
             let button = UIButton(type: .custom)
-            button.setTitle(title, for: .normal)
+            button.setTitle(tab.title, for: .normal)
             button.setTitleColor(.black, for: .selected)
             button.setTitleColor(.lightGray, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
@@ -60,13 +78,13 @@ final class ProfileMenuTabCell: BaseCollectionReusableView {
             menuStackView.addArrangedSubview(button)
             menuButtons.append(button)
         }
-
-        updateSelectedButton(to: 0)
     }
 
     // MARK: - UI
 
     override func setStyle() {
+        super.setStyle()
+        
         menuStackView.configureStackView(
             axis: .horizontal,
             spacing: 10
