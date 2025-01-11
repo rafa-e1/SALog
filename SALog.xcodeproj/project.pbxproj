@@ -179,9 +179,9 @@
 		058266BE2D27BEBB00218960 /* ProfileScene */ = {
 			isa = PBXGroup;
 			children = (
-				058267382D2D096700218960 /* ProfileCell.swift */,
-				0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */,
-				058266BB2D27BEAC00218960 /* ProfileViewController.swift */,
+				058268772D32D9C200218960 /* Model */,
+				058268792D32D9D900218960 /* ViewModel */,
+				058268782D32D9CD00218960 /* View */,
 			);
 			path = ProfileScene;
 			sourceTree = "<group>";
@@ -225,6 +225,36 @@
 				0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		058268772D32D9C200218960 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0582686F2D32CD9800218960 /* ProfileMenuTab.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		058268782D32D9CD00218960 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				058267382D2D096700218960 /* ProfileCell.swift */,
+				0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */,
+				0582686D2D32CC2F00218960 /* ProfileBasicInfoCell.swift */,
+				058268712D32CE2200218960 /* ProfileMapLevelCell.swift */,
+				058268732D32CE2B00218960 /* ProfileRankInfoCell.swift */,
+				058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */,
+				058266BB2D27BEAC00218960 /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		058268792D32D9D900218960 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0582687A2D32D9FD00218960 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0D10B9C0A37C6FC5D3E78A9D /* Pods */ = {
