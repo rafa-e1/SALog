@@ -28,6 +28,12 @@
 		058267392D2D096700218960 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058267382D2D096700218960 /* ProfileCell.swift */; };
 		0582673C2D2D197900218960 /* ProfileImageFullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */; };
 		0582673E2D2E8C0600218960 /* ProfileMenuTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */; };
+		0582686E2D32CC2F00218960 /* ProfileBasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582686D2D32CC2F00218960 /* ProfileBasicInfoCell.swift */; };
+		058268702D32CD9800218960 /* ProfileMenuTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582686F2D32CD9800218960 /* ProfileMenuTab.swift */; };
+		058268722D32CE2200218960 /* ProfileMapLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268712D32CE2200218960 /* ProfileMapLevelCell.swift */; };
+		058268742D32CE2B00218960 /* ProfileRankInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268732D32CE2B00218960 /* ProfileRankInfoCell.swift */; };
+		058268762D32CE3500218960 /* ProfileMatchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */; };
+		0582687B2D32D9FD00218960 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582687A2D32D9FD00218960 /* ProfileViewModel.swift */; };
 		D02987EC61866F0C6DB665B1 /* Pods_SALog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +61,12 @@
 		058267382D2D096700218960 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageFullScreenView.swift; sourceTree = "<group>"; };
 		0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTabCell.swift; sourceTree = "<group>"; };
+		0582686D2D32CC2F00218960 /* ProfileBasicInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBasicInfoCell.swift; sourceTree = "<group>"; };
+		0582686F2D32CD9800218960 /* ProfileMenuTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTab.swift; sourceTree = "<group>"; };
+		058268712D32CE2200218960 /* ProfileMapLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapLevelCell.swift; sourceTree = "<group>"; };
+		058268732D32CE2B00218960 /* ProfileRankInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRankInfoCell.swift; sourceTree = "<group>"; };
+		058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMatchHistoryCell.swift; sourceTree = "<group>"; };
+		0582687A2D32D9FD00218960 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SALog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBEA1788124AE2C50D1FBEB /* Pods-SALog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.release.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.release.xcconfig"; sourceTree = "<group>"; };
 		DD6597661C5AF620FEB897AD /* Pods-SALog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.debug.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,9 +179,9 @@
 		058266BE2D27BEBB00218960 /* ProfileScene */ = {
 			isa = PBXGroup;
 			children = (
-				058267382D2D096700218960 /* ProfileCell.swift */,
-				0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */,
-				058266BB2D27BEAC00218960 /* ProfileViewController.swift */,
+				058268772D32D9C200218960 /* Model */,
+				058268792D32D9D900218960 /* ViewModel */,
+				058268782D32D9CD00218960 /* View */,
 			);
 			path = ProfileScene;
 			sourceTree = "<group>";
@@ -213,6 +225,36 @@
 				0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		058268772D32D9C200218960 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0582686F2D32CD9800218960 /* ProfileMenuTab.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		058268782D32D9CD00218960 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				058267382D2D096700218960 /* ProfileCell.swift */,
+				0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */,
+				0582686D2D32CC2F00218960 /* ProfileBasicInfoCell.swift */,
+				058268712D32CE2200218960 /* ProfileMapLevelCell.swift */,
+				058268732D32CE2B00218960 /* ProfileRankInfoCell.swift */,
+				058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */,
+				058266BB2D27BEAC00218960 /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		058268792D32D9D900218960 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0582687A2D32D9FD00218960 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0D10B9C0A37C6FC5D3E78A9D /* Pods */ = {
@@ -354,14 +396,20 @@
 				058266C32D27C49D00218960 /* ReusableIdentifier+.swift in Sources */,
 				058267372D2BDA0C00218960 /* UIButton+.swift in Sources */,
 				058266AD2D27BD1500218960 /* AppDelegate.swift in Sources */,
+				0582687B2D32D9FD00218960 /* ProfileViewModel.swift in Sources */,
 				058266AE2D27BD1500218960 /* SceneDelegate.swift in Sources */,
 				058266CD2D27C5A100218960 /* BaseViewController.swift in Sources */,
+				058268702D32CD9800218960 /* ProfileMenuTab.swift in Sources */,
 				058266C52D27C4FD00218960 /* UIView+.swift in Sources */,
 				058266C92D27C55A00218960 /* BaseCollectionViewCell.swift in Sources */,
 				058266B82D27BE8400218960 /* SearchViewController.swift in Sources */,
+				058268722D32CE2200218960 /* ProfileMapLevelCell.swift in Sources */,
 				0582673C2D2D197900218960 /* ProfileImageFullScreenView.swift in Sources */,
+				0582686E2D32CC2F00218960 /* ProfileBasicInfoCell.swift in Sources */,
+				058268742D32CE2B00218960 /* ProfileRankInfoCell.swift in Sources */,
 				058267352D2BCF5F00218960 /* SearchView.swift in Sources */,
 				058266B52D27BDE800218960 /* MainTabBarController.swift in Sources */,
+				058268762D32CE3500218960 /* ProfileMatchHistoryCell.swift in Sources */,
 				058267392D2D096700218960 /* ProfileCell.swift in Sources */,
 				058266C72D27C52000218960 /* UIStackView+.swift in Sources */,
 				0582673E2D2E8C0600218960 /* ProfileMenuTabCell.swift in Sources */,
