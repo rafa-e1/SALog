@@ -35,11 +35,12 @@ final class MainTabBarController: UITabBarController {
             rootViewController: BlackListViewController()
         )
 
+        let profileViewModel = ProfileViewModel()
         let profile = createNavigationController(
             title: "",
             unselectedImage: "person",
             selectedImage: "person.fill",
-            rootViewController: ProfileViewController()
+            rootViewController: ProfileViewController(viewModel: profileViewModel)
         )
 
         viewControllers = [search, blackList, profile]
