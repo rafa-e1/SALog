@@ -33,6 +33,7 @@
 		058268722D32CE2200218960 /* ProfileMapLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268712D32CE2200218960 /* ProfileMapLevelCell.swift */; };
 		058268742D32CE2B00218960 /* ProfileRankInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268732D32CE2B00218960 /* ProfileRankInfoCell.swift */; };
 		058268762D32CE3500218960 /* ProfileMatchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */; };
+		0582687B2D32D9FD00218960 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582687A2D32D9FD00218960 /* ProfileViewModel.swift */; };
 		D02987EC61866F0C6DB665B1 /* Pods_SALog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		058268712D32CE2200218960 /* ProfileMapLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapLevelCell.swift; sourceTree = "<group>"; };
 		058268732D32CE2B00218960 /* ProfileRankInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRankInfoCell.swift; sourceTree = "<group>"; };
 		058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMatchHistoryCell.swift; sourceTree = "<group>"; };
+		0582687A2D32D9FD00218960 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SALog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBEA1788124AE2C50D1FBEB /* Pods-SALog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.release.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.release.xcconfig"; sourceTree = "<group>"; };
 		DD6597661C5AF620FEB897AD /* Pods-SALog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.debug.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				058266C32D27C49D00218960 /* ReusableIdentifier+.swift in Sources */,
 				058267372D2BDA0C00218960 /* UIButton+.swift in Sources */,
 				058266AD2D27BD1500218960 /* AppDelegate.swift in Sources */,
+				0582687B2D32D9FD00218960 /* ProfileViewModel.swift in Sources */,
 				058266AE2D27BD1500218960 /* SceneDelegate.swift in Sources */,
 				058266CD2D27C5A100218960 /* BaseViewController.swift in Sources */,
 				058268702D32CD9800218960 /* ProfileMenuTab.swift in Sources */,
