@@ -29,6 +29,7 @@
 		0582673C2D2D197900218960 /* ProfileImageFullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */; };
 		0582673E2D2E8C0600218960 /* ProfileMenuTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */; };
 		0582686E2D32CC2F00218960 /* ProfileBasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582686D2D32CC2F00218960 /* ProfileBasicInfoCell.swift */; };
+		058268702D32CD9800218960 /* ProfileMenuTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582686F2D32CD9800218960 /* ProfileMenuTab.swift */; };
 		058268722D32CE2200218960 /* ProfileMapLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268712D32CE2200218960 /* ProfileMapLevelCell.swift */; };
 		058268742D32CE2B00218960 /* ProfileRankInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268732D32CE2B00218960 /* ProfileRankInfoCell.swift */; };
 		058268762D32CE3500218960 /* ProfileMatchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */; };
@@ -60,6 +61,7 @@
 		0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageFullScreenView.swift; sourceTree = "<group>"; };
 		0582673D2D2E8C0600218960 /* ProfileMenuTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTabCell.swift; sourceTree = "<group>"; };
 		0582686D2D32CC2F00218960 /* ProfileBasicInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBasicInfoCell.swift; sourceTree = "<group>"; };
+		0582686F2D32CD9800218960 /* ProfileMenuTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTab.swift; sourceTree = "<group>"; };
 		058268712D32CE2200218960 /* ProfileMapLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMapLevelCell.swift; sourceTree = "<group>"; };
 		058268732D32CE2B00218960 /* ProfileRankInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRankInfoCell.swift; sourceTree = "<group>"; };
 		058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMatchHistoryCell.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				058266AD2D27BD1500218960 /* AppDelegate.swift in Sources */,
 				058266AE2D27BD1500218960 /* SceneDelegate.swift in Sources */,
 				058266CD2D27C5A100218960 /* BaseViewController.swift in Sources */,
+				058268702D32CD9800218960 /* ProfileMenuTab.swift in Sources */,
 				058266C52D27C4FD00218960 /* UIView+.swift in Sources */,
 				058266C92D27C55A00218960 /* BaseCollectionViewCell.swift in Sources */,
 				058266B82D27BE8400218960 /* SearchViewController.swift in Sources */,
