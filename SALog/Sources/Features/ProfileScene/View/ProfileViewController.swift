@@ -19,15 +19,36 @@ final class ProfileViewController: BaseViewController {
 
     private let userNickname = "지올"
     private var isTitleSet = false
+    private let viewModel: ProfileViewModel
 
+    // MARK: - Initializer
+
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bindings()
         setNavigationBarStyle()
         setDelegates()
         registerCells()
+    }
+
+    // MARK: - Bindings
+
+    private func bindings() {
+        viewModel.onTabChanged = { [weak self] _ in
+            self?.collectionView.reloadData()
+        }
     }
 
     // MARK: - Helpers
@@ -50,8 +71,23 @@ final class ProfileViewController: BaseViewController {
         )
 
         collectionView.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: "EmptyCell"
+            ProfileBasicInfoCell.self,
+            forCellWithReuseIdentifier: ProfileBasicInfoCell.identifier
+        )
+
+        collectionView.register(
+            ProfileMapLevelCell.self,
+            forCellWithReuseIdentifier: ProfileMapLevelCell.identifier
+        )
+
+        collectionView.register(
+            ProfileRankInfoCell.self,
+            forCellWithReuseIdentifier: ProfileRankInfoCell.identifier
+        )
+
+        collectionView.register(
+            ProfileMatchHistoryCell.self,
+            forCellWithReuseIdentifier: ProfileMatchHistoryCell.identifier
         )
     }
 
@@ -120,35 +156,41 @@ extension ProfileViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        switch section {
-        case 0: return  1
-        case 1: return 10
-        default: return 0
-        }
+        return 1
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        switch indexPath.section {
-        case 0:
-            guard let cell = collectionView.dequeueReusableCell(
+        if indexPath.section == 0 {
+            return collectionView.dequeueReusableCell(
                 withReuseIdentifier: ProfileCell.identifier,
                 for: indexPath
-            ) as? ProfileCell else {
-                return UICollectionViewCell()
-            }
-
-            return cell
-        case 1:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "EmptyCell",
-                for: indexPath
             )
-            return cell
-
-        default: return UICollectionViewCell()
+        } else {
+            switch viewModel.selectedTab {
+            case .basicInfo:
+                return collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProfileBasicInfoCell.identifier,
+                    for: indexPath
+                )
+            case .mapLevel:
+                return collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProfileMapLevelCell.identifier,
+                    for: indexPath
+                )
+            case .rankInfo:
+                return collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProfileRankInfoCell.identifier,
+                    for: indexPath
+                )
+            case .matchHistory:
+                return collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProfileMatchHistoryCell.identifier,
+                    for: indexPath
+                )
+            }
         }
     }
 
@@ -165,6 +207,10 @@ extension ProfileViewController: UICollectionViewDataSource {
             ) as? ProfileMenuTabCell else {
                 return UICollectionReusableView()
             }
+
+            header.delegate = self
+            header.configureSelectedTab(viewModel.selectedTab)
+
             return header
         }
         return UICollectionReusableView()
@@ -233,13 +279,13 @@ private extension ProfileViewController {
     private func createContentSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(300)
+            heightDimension: .fractionalHeight(1.0)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(300)
+            heightDimension: .fractionalHeight(1.0)
         )
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,
@@ -250,5 +296,15 @@ private extension ProfileViewController {
         section.boundarySupplementaryItems = [createMenuTabSection()]
 
         return section
+    }
+}
+
+// MARK: - ProfileMenuTabCellDelegate
+
+extension ProfileViewController: ProfileMenuTabCellDelegate {
+
+    func didSelectTab(_ cell: ProfileMenuTabCell, index: Int) {
+        let selectedTab = ProfileMenuTab.allCases[index]
+        viewModel.changeTab(to: selectedTab)
     }
 }
