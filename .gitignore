@@ -15,6 +15,7 @@ Pods/
 .AppleDouble
 .LSOverride
 *.xcuserstate
+*.xcconfig
 
 # Icon must end with two \r
 Icon
