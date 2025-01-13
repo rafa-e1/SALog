@@ -65,9 +65,9 @@ final class ProfileViewController: BaseViewController {
         )
 
         collectionView.register(
-            ProfileMenuTabCell.self,
+            ProfileMenuTabReusableView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: ProfileMenuTabCell.identifier
+            withReuseIdentifier: ProfileMenuTabReusableView.identifier
         )
 
         collectionView.register(
@@ -202,9 +202,9 @@ extension ProfileViewController: UICollectionViewDataSource {
         if kind == UICollectionView.elementKindSectionHeader && indexPath.section == 1 {
             guard let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
-                withReuseIdentifier: ProfileMenuTabCell.identifier,
+                withReuseIdentifier: ProfileMenuTabReusableView.identifier,
                 for: indexPath
-            ) as? ProfileMenuTabCell else {
+            ) as? ProfileMenuTabReusableView else {
                 return UICollectionReusableView()
             }
 
@@ -301,9 +301,9 @@ private extension ProfileViewController {
 
 // MARK: - ProfileMenuTabCellDelegate
 
-extension ProfileViewController: ProfileMenuTabCellDelegate {
+extension ProfileViewController: ProfileMenuTabDelegate {
 
-    func didSelectTab(_ cell: ProfileMenuTabCell, index: Int) {
+    func didSelectTab(_ cell: ProfileMenuTabReusableView, index: Int) {
         let selectedTab = ProfileMenuTab.allCases[index]
         viewModel.changeTab(to: selectedTab)
     }

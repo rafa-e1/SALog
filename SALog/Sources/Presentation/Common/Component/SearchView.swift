@@ -7,13 +7,52 @@
 
 import UIKit
 
+protocol SearchViewDelegate: AnyObject {
+    func didChangeSearchText(_ text: String)
+}
+
 final class SearchView: BaseView {
 
     // MARK: - Properties
 
+    weak var delegate: SearchViewDelegate?
+
     private let textField = UITextField()
     private let leftImageView = UIImageView()
     private let leftView = UIView()
+
+    // MARK: - Initializer
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setAddTargets()
+        setDelegates()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Actions
+
+    @objc private func textFieldDidChange() {
+        delegate?.didChangeSearchText(textField.text ?? "")
+    }
+
+    // MARK: - Helpers
+
+    private func setAddTargets() {
+        textField.addTarget(
+            self,
+            action: #selector(textFieldDidChange),
+            for: .editingChanged
+        )
+    }
+
+    private func setDelegates() {
+        textField.delegate = self
+    }
 
     // MARK: - UI
 
@@ -73,5 +112,15 @@ final class SearchView: BaseView {
 
     func updatePlaceholder(_ placeholder: String) {
         textField.placeholder = placeholder
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SearchView: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
