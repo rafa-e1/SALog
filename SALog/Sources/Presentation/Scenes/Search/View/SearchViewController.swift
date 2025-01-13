@@ -181,7 +181,7 @@ extension SearchViewController: SearchViewModelDelegate {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UITableViewDataSource
 
 extension SearchViewController: UITableViewDataSource {
 
