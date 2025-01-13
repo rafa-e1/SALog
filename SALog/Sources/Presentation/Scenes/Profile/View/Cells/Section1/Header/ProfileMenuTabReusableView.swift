@@ -1,5 +1,5 @@
 //
-//  ProfileMenuTabCell.swift
+//  ProfileMenuTabReusableView.swift
 //  SALog
 //
 //  Created by RAFA on 1/8/25.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol ProfileMenuTabCellDelegate: AnyObject {
-    func didSelectTab(_ cell: ProfileMenuTabCell, index: Int)
+protocol ProfileMenuTabDelegate: AnyObject {
+    func didSelectTab(_ cell: ProfileMenuTabReusableView, index: Int)
 }
 
-final class ProfileMenuTabCell: BaseCollectionReusableView {
+final class ProfileMenuTabReusableView: BaseCollectionReusableView {
 
     // MARK: - Properties
 
-    weak var delegate: ProfileMenuTabCellDelegate?
+    weak var delegate: ProfileMenuTabDelegate?
     private let menuTabs = ProfileMenuTab.allCases
     private var selectedIndex: Int = 0
 
