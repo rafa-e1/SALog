@@ -299,7 +299,7 @@ private extension ProfileViewController {
     }
 }
 
-// MARK: - ProfileMenuTabCellDelegate
+// MARK: - ProfileMenuTabDelegate
 
 extension ProfileViewController: ProfileMenuTabDelegate {
 
