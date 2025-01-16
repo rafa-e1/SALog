@@ -44,6 +44,7 @@
 		058268962D3504A900218960 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268952D3504A900218960 /* User.swift */; };
 		0582689A2D3504C400218960 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268992D3504C400218960 /* SearchType.swift */; };
 		059C05AA2D35882200AA534F /* BlackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C05A82D35882200AA534F /* BlackListViewController.swift */; };
+		059C066E2D39448B00AA534F /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C066D2D39448B00AA534F /* SearchResultCell.swift */; };
 		059C06702D3944B000AA534F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C066F2D3944B000AA534F /* BaseTableViewCell.swift */; };
 		D02987EC61866F0C6DB665B1 /* Pods_SALog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		058268952D3504A900218960 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		058268992D3504C400218960 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 		059C05A82D35882200AA534F /* BlackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListViewController.swift; sourceTree = "<group>"; };
+		059C066D2D39448B00AA534F /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		059C066F2D3944B000AA534F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SALog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBEA1788124AE2C50D1FBEB /* Pods-SALog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.release.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.release.xcconfig"; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 		059C05A62D35880F00AA534F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				059C066D2D39448B00AA534F /* SearchResultCell.swift */,
 				058266B72D27BE8400218960 /* SearchViewController.swift */,
 			);
 			path = View;
@@ -592,6 +595,7 @@
 				058266CD2D27C5A100218960 /* BaseViewController.swift in Sources */,
 				058268702D32CD9800218960 /* ProfileMenuTab.swift in Sources */,
 				058266C52D27C4FD00218960 /* UIView+.swift in Sources */,
+				059C066E2D39448B00AA534F /* SearchResultCell.swift in Sources */,
 				0582689A2D3504C400218960 /* SearchType.swift in Sources */,
 				058266C92D27C55A00218960 /* BaseCollectionViewCell.swift in Sources */,
 				058266B82D27BE8400218960 /* SearchViewController.swift in Sources */,

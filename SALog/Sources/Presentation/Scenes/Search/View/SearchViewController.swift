@@ -70,8 +70,8 @@ final class SearchViewController: BaseViewController {
 
     private func registerCells() {
         tableView.register(
-            UITableViewCell.self,
-            forCellReuseIdentifier: "Cell"
+            SearchResultCell.self,
+            forCellReuseIdentifier: SearchResultCell.identifier
         )
     }
 
@@ -185,7 +185,10 @@ extension SearchViewController: SearchViewModelDelegate {
 
 extension SearchViewController: UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         switch viewModel.searchType {
         case .nickname:
             return viewModel.searchResults.count
@@ -194,9 +197,16 @@ extension SearchViewController: UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .clear
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SearchResultCell.identifier,
+            for: indexPath
+        ) as? SearchResultCell else {
+            return UITableViewCell()
+        }
 
         switch viewModel.searchType {
         case .nickname:
