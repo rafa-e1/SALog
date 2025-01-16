@@ -15,7 +15,7 @@ final class SearchViewController: BaseViewController {
     private let clanNameButton = UIButton()
     private let radioButtonsStackView = UIStackView()
     private let searchBar = SearchView()
-    private let resultsTableView = UITableView()
+    private let tableView = UITableView()
 
     private let viewModel: SearchViewModel
 
@@ -64,14 +64,14 @@ final class SearchViewController: BaseViewController {
     private func setDelegates() {
         searchBar.delegate = self
         viewModel.delegate = self
-        resultsTableView.delegate = self
-        resultsTableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     private func registerCells() {
-        resultsTableView.register(
-            UITableViewCell.self,
-            forCellReuseIdentifier: "Cell"
+        tableView.register(
+            SearchResultCell.self,
+            forCellReuseIdentifier: SearchResultCell.identifier
         )
     }
 
@@ -89,14 +89,14 @@ final class SearchViewController: BaseViewController {
             alignment: .trailing
         )
 
-        resultsTableView.backgroundColor = .clear
+        tableView.backgroundColor = .clear
     }
 
     override func setHierarchy() {
         view.addSubviews(
             radioButtonsStackView,
             searchBar,
-            resultsTableView
+            tableView
         )
     }
 
@@ -111,7 +111,7 @@ final class SearchViewController: BaseViewController {
             $0.horizontalEdges.equalToSuperview().inset(16)
         }
 
-        resultsTableView.snp.makeConstraints {
+        tableView.snp.makeConstraints {
             $0.top.equalTo(searchBar.snp.bottom).offset(10)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
@@ -166,7 +166,7 @@ extension SearchViewController: SearchViewDelegate {
 extension SearchViewController: SearchViewModelDelegate {
 
     func didUpdateSearchResults() {
-        resultsTableView.reloadData()
+        tableView.reloadData()
     }
 
     func didEncounterError(_ error: Error) {
@@ -185,7 +185,10 @@ extension SearchViewController: SearchViewModelDelegate {
 
 extension SearchViewController: UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         switch viewModel.searchType {
         case .nickname:
             return viewModel.searchResults.count
@@ -194,9 +197,16 @@ extension SearchViewController: UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .clear
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SearchResultCell.identifier,
+            for: indexPath
+        ) as? SearchResultCell else {
+            return UITableViewCell()
+        }
 
         switch viewModel.searchType {
         case .nickname:
