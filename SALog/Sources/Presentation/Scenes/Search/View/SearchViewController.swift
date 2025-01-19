@@ -215,6 +215,8 @@ extension SearchViewController: UITableViewDataSource {
         case .clan: break
         }
 
+        cell.selectionStyle = .none
+
         return cell
     }
 }
