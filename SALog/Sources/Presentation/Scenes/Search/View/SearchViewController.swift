@@ -189,12 +189,7 @@ extension SearchViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        switch viewModel.searchType {
-        case .nickname:
-            return viewModel.searchResults.count
-        case .clan:
-            return 0
-        }
+        return viewModel.searchResults.count
     }
 
     func tableView(
