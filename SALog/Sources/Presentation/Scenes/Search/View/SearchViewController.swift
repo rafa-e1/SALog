@@ -189,12 +189,7 @@ extension SearchViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        switch viewModel.searchType {
-        case .nickname:
-            return viewModel.searchResults.count
-        case .clan:
-            return 0
-        }
+        return viewModel.searchResults.count
     }
 
     func tableView(
@@ -211,7 +206,9 @@ extension SearchViewController: UITableViewDataSource {
         switch viewModel.searchType {
         case .nickname:
             let result = viewModel.searchResults[indexPath.row]
-            cell.textLabel?.text = "\(result.userNickname) (ID: \(result.userNexonSN))"
+            cell.configure(result)
+            print("DEBUG: User ID - \(result.userNexonSN)")
+            print("DEBUG: User Image URL - \(result.userImageURL)")
         case .clan: break
         }
 
