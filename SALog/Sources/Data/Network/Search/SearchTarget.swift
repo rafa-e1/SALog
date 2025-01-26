@@ -9,7 +9,7 @@ import Moya
 
 enum SearchTarget {
     case searchByNickname(nickname: String)
-    case searchByClan(clanId: String)
+    case searchByClan(clanName: String)
 }
 
 extension SearchTarget: TargetType {
@@ -32,12 +32,7 @@ extension SearchTarget: TargetType {
     }
 
     var task: Task {
-        switch self {
-        case .searchByNickname:
-            return .requestPlain
-        case .searchByClan:
-            return .requestPlain
-        }
+        return .requestPlain
     }
 
     var headers: [String: String]? {

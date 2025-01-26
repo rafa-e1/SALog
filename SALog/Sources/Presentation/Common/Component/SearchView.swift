@@ -17,7 +17,7 @@ final class SearchView: BaseView {
 
     weak var delegate: SearchViewDelegate?
 
-    private let textField = UITextField()
+    let textField = UITextField()
     private let leftImageView = UIImageView()
     private let leftView = UIView()
 
@@ -68,6 +68,9 @@ final class SearchView: BaseView {
             $0.tintColor = .black
             $0.leftView = leftView
             $0.leftViewMode = .always
+            $0.spellCheckingType = .no
+            $0.autocorrectionType = .no
+            $0.autocapitalizationType = .none
         }
 
         leftImageView.do {

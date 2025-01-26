@@ -1,5 +1,5 @@
 //
-//  SearchResponseDTO.swift
+//  NicknameSearchResponseDTO.swift
 //  SALog
 //
 //  Created by RAFA on 1/13/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchResponseDTO: Decodable {
+struct NicknameSearchResponseDTO: Decodable {
     let characterInfo: [UserResponseDTO]?
 
     enum CodingKeys: String, CodingKey {

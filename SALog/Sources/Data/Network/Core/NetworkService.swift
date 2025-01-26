@@ -29,6 +29,9 @@ final class NetworkService: NetworkServiceProtocol {
         provider.request(MultiTarget(target)) { result in
             switch result {
             case .success(let response):
+                let jsonString = String(data: response.data, encoding: .utf8)
+                print("DEBUG: JSON Response - \(String(describing: jsonString))")
+
                 do {
                     let decodedData = try JSONDecoder().decode(
                         T.self,
@@ -37,7 +40,7 @@ final class NetworkService: NetworkServiceProtocol {
                     print("DEBUG: Decoded Data - \(decodedData)")
                     completion(.success(decodedData))
                 } catch {
-                    print("DEBUG: Decoding error: \(error.localizedDescription)")
+                    print("DEBUG: Decoding error - \(error.localizedDescription)")
                     completion(.failure(error))
                 }
             case .failure(let error):
