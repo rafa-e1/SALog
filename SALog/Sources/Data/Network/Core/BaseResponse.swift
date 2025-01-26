@@ -9,7 +9,7 @@ import Foundation
 
 struct BaseResponse<T: Decodable>: Decodable {
     let rtnCode: Int
-    let message: String
+    let message: String?
     let result: T?
 
     enum CodingKeys: CodingKey {
