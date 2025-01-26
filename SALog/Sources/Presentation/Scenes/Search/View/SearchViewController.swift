@@ -51,12 +51,16 @@ final class SearchViewController: BaseViewController {
 
     @objc private func nicknameButtonTapped() {
         guard !isNicknameSelected else { return }
+
         isNicknameSelected = true
+        triggerSearchBasedOnCurrentText()
     }
 
     @objc private func clanNameButtonTapped() {
         guard isNicknameSelected else { return }
+
         isNicknameSelected = false
+        triggerSearchBasedOnCurrentText()
     }
 
     // MARK: - Helpers
@@ -73,6 +77,12 @@ final class SearchViewController: BaseViewController {
             SearchResultCell.self,
             forCellReuseIdentifier: SearchResultCell.identifier
         )
+    }
+
+    private func triggerSearchBasedOnCurrentText() {
+        let currentText = searchBar.textField.text ?? ""
+        viewModel.updateSearchType(isNicknameSelected ? .nickname : .clan)
+        viewModel.search(query: currentText)
     }
 
     // MARK: - UI
@@ -189,7 +199,10 @@ extension SearchViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return viewModel.searchResults.count
+        switch viewModel.searchType {
+        case .nickname: viewModel.searchNicknameResults.count
+        case .clan: viewModel.searchClanNameResults.count
+        }
     }
 
     func tableView(
@@ -205,11 +218,16 @@ extension SearchViewController: UITableViewDataSource {
 
         switch viewModel.searchType {
         case .nickname:
-            let result = viewModel.searchResults[indexPath.row]
-            cell.configure(result)
+            let result = viewModel.searchNicknameResults[indexPath.row]
+            cell.configure(type: .nickname, user: result)
             print("DEBUG: User ID - \(result.userNexonSN)")
             print("DEBUG: User Image URL - \(result.userImageURL)")
-        case .clan: break
+        case .clan:
+            let result = viewModel.searchClanNameResults[indexPath.row]
+            cell.configure(type: .clan, clan: result)
+            print("DEBUG: Clan ID - \(result.clanID)")
+            print("DEBUG: Clan Mark 1 - \(result.clanMark1)")
+            print("DEBUG: Clan Mark 2 - \(result.clanMark2)")
         }
 
         cell.selectionStyle = .none
