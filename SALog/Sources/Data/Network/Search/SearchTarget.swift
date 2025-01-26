@@ -9,7 +9,7 @@ import Moya
 
 enum SearchTarget {
     case searchByNickname(nickname: String)
-    case searchByClan(clanId: String)
+    case searchByClan(clanName: String)
 }
 
 extension SearchTarget: TargetType {
