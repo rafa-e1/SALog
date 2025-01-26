@@ -68,6 +68,9 @@ final class SearchView: BaseView {
             $0.tintColor = .black
             $0.leftView = leftView
             $0.leftViewMode = .always
+            $0.spellCheckingType = .no
+            $0.autocorrectionType = .no
+            $0.autocapitalizationType = .none
         }
 
         leftImageView.do {
