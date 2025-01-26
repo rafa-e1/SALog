@@ -39,7 +39,7 @@
 		058268872D34F07000218960 /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268862D34F07000218960 /* NetworkEnvironment.swift */; };
 		058268892D34F1F400218960 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268882D34F1F400218960 /* SearchService.swift */; };
 		0582688D2D35042700218960 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582688C2D35042700218960 /* BaseResponse.swift */; };
-		058268902D35045D00218960 /* SearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582688F2D35045D00218960 /* SearchResponseDTO.swift */; };
+		058268902D35045D00218960 /* NicknameSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582688F2D35045D00218960 /* NicknameSearchResponseDTO.swift */; };
 		058268922D35047900218960 /* UserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268912D35047900218960 /* UserResponseDTO.swift */; };
 		058268962D3504A900218960 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268952D3504A900218960 /* User.swift */; };
 		0582689A2D3504C400218960 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268992D3504C400218960 /* SearchType.swift */; };
@@ -48,6 +48,7 @@
 		059C06702D3944B000AA534F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C066F2D3944B000AA534F /* BaseTableViewCell.swift */; };
 		05F681752D4651E00030F578 /* Clan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F681742D4651E00030F578 /* Clan.swift */; };
 		05F681782D4652DB0030F578 /* ClanResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F681772D4652DB0030F578 /* ClanResponseDTO.swift */; };
+		05F6817C2D465D970030F578 /* ClanNameSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6817B2D465D970030F578 /* ClanNameSearchResponseDTO.swift */; };
 		D02987EC61866F0C6DB665B1 /* Pods_SALog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +88,7 @@
 		058268862D34F07000218960 /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
 		058268882D34F1F400218960 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		0582688C2D35042700218960 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
-		0582688F2D35045D00218960 /* SearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseDTO.swift; sourceTree = "<group>"; };
+		0582688F2D35045D00218960 /* NicknameSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSearchResponseDTO.swift; sourceTree = "<group>"; };
 		058268912D35047900218960 /* UserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseDTO.swift; sourceTree = "<group>"; };
 		058268952D3504A900218960 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		058268992D3504C400218960 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		059C066F2D3944B000AA534F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		05F681742D4651E00030F578 /* Clan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clan.swift; sourceTree = "<group>"; };
 		05F681772D4652DB0030F578 /* ClanResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanResponseDTO.swift; sourceTree = "<group>"; };
+		05F6817B2D465D970030F578 /* ClanNameSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanNameSearchResponseDTO.swift; sourceTree = "<group>"; };
 		3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SALog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBEA1788124AE2C50D1FBEB /* Pods-SALog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.release.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.release.xcconfig"; sourceTree = "<group>"; };
 		DD6597661C5AF620FEB897AD /* Pods-SALog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.debug.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -325,7 +327,8 @@
 		0582689C2D350EB800218960 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				0582688F2D35045D00218960 /* SearchResponseDTO.swift */,
+				0582688F2D35045D00218960 /* NicknameSearchResponseDTO.swift */,
+				05F6817B2D465D970030F578 /* ClanNameSearchResponseDTO.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				058268962D3504A900218960 /* User.swift in Sources */,
 				058268872D34F07000218960 /* NetworkEnvironment.swift in Sources */,
 				059C06702D3944B000AA534F /* BaseTableViewCell.swift in Sources */,
+				05F6817C2D465D970030F578 /* ClanNameSearchResponseDTO.swift in Sources */,
 				058266BC2D27BEAC00218960 /* ProfileViewController.swift in Sources */,
 				058266C32D27C49D00218960 /* ReusableIdentifier+.swift in Sources */,
 				058267372D2BDA0C00218960 /* UIButton+.swift in Sources */,
@@ -631,7 +635,7 @@
 				058268822D34E54500218960 /* SearchViewModel.swift in Sources */,
 				058268892D34F1F400218960 /* SearchService.swift in Sources */,
 				058268802D34E4F600218960 /* NetworkService.swift in Sources */,
-				058268902D35045D00218960 /* SearchResponseDTO.swift in Sources */,
+				058268902D35045D00218960 /* NicknameSearchResponseDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
