@@ -17,7 +17,7 @@ final class SearchView: BaseView {
 
     weak var delegate: SearchViewDelegate?
 
-    private let textField = UITextField()
+    let textField = UITextField()
     private let leftImageView = UIImageView()
     private let leftView = UIView()
 
