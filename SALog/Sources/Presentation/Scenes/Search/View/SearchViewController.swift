@@ -220,14 +220,9 @@ extension SearchViewController: UITableViewDataSource {
         case .nickname:
             let result = viewModel.searchNicknameResults[indexPath.row]
             cell.configure(type: .nickname, user: result)
-            print("DEBUG: User ID - \(result.userNexonSN)")
-            print("DEBUG: User Image URL - \(result.userImageURL)")
         case .clan:
             let result = viewModel.searchClanNameResults[indexPath.row]
             cell.configure(type: .clan, clan: result)
-            print("DEBUG: Clan ID - \(result.clanID)")
-            print("DEBUG: Clan Mark 1 - \(result.clanMark1)")
-            print("DEBUG: Clan Mark 2 - \(result.clanMark2)")
         }
 
         cell.selectionStyle = .none
