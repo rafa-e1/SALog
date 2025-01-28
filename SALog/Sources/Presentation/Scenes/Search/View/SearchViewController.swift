@@ -233,4 +233,16 @@ extension SearchViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension SearchViewController: UITableViewDelegate {}
+extension SearchViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch viewModel.searchType {
+        case .nickname:
+            let nickname = viewModel.searchNicknameResults[indexPath.row]
+            print("DEBUG: Clicked \(nickname.userNickname)")
+        case .clan:
+            let clanName = viewModel.searchClanNameResults[indexPath.row]
+            print("DEBUG: Clicked \(clanName.clanName)")
+        }
+    }
+}
