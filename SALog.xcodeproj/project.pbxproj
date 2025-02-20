@@ -147,7 +147,7 @@
 		058266AF2D27BD5000218960 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				058266B12D27BD7200218960 /* App */,
+				058266B12D27BD7200218960 /* Application */,
 				058266B22D27BD8300218960 /* Presentation */,
 				059C05A12D35869900AA534F /* Domain */,
 				059C05AB2D35886100AA534F /* Data */,
@@ -165,13 +165,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		058266B12D27BD7200218960 /* App */ = {
+		058266B12D27BD7200218960 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				058266A32D27BD1500218960 /* AppDelegate.swift */,
 				058266A82D27BD1500218960 /* SceneDelegate.swift */,
 			);
-			path = App;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		058266B22D27BD8300218960 /* Presentation */ = {
