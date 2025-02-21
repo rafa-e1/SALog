@@ -177,49 +177,52 @@
 		058266B22D27BD8300218960 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				058266B32D27BDC500218960 /* MainTabBarScene */,
+				058266B62D27BE6C00218960 /* SearchScene */,
+				058266BD2D27BEB500218960 /* BlackListScene */,
+				058266BE2D27BEBB00218960 /* ProfileScene */,
 				0582689B2D350DA000218960 /* Common */,
-				059C05A32D35872B00AA534F /* Scenes */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		058266B32D27BDC500218960 /* MainTabBar */ = {
+		058266B32D27BDC500218960 /* MainTabBarScene */ = {
 			isa = PBXGroup;
 			children = (
 				058266B42D27BDE800218960 /* MainTabBarController.swift */,
 			);
-			path = MainTabBar;
+			path = MainTabBarScene;
 			sourceTree = "<group>";
 		};
-		058266B62D27BE6C00218960 /* Search */ = {
+		058266B62D27BE6C00218960 /* SearchScene */ = {
 			isa = PBXGroup;
 			children = (
 				059C05A42D35880000AA534F /* Model */,
-				059C05A52D35880700AA534F /* ViewModel */,
 				059C05A62D35880F00AA534F /* View */,
+				059C05A52D35880700AA534F /* ViewModel */,
 			);
-			path = Search;
+			path = SearchScene;
 			sourceTree = "<group>";
 		};
-		058266BD2D27BEB500218960 /* BlackList */ = {
+		058266BD2D27BEB500218960 /* BlackListScene */ = {
 			isa = PBXGroup;
 			children = (
 				059C05A92D35882200AA534F /* View */,
 			);
-			path = BlackList;
+			path = BlackListScene;
 			sourceTree = "<group>";
 		};
-		058266BE2D27BEBB00218960 /* Profile */ = {
+		058266BE2D27BEBB00218960 /* ProfileScene */ = {
 			isa = PBXGroup;
 			children = (
 				058268772D32D9C200218960 /* Model */,
-				058268792D32D9D900218960 /* ViewModel */,
 				058268782D32D9CD00218960 /* View */,
+				058268792D32D9D900218960 /* ViewModel */,
 			);
-			path = Profile;
+			path = ProfileScene;
 			sourceTree = "<group>";
 		};
-		058266C02D27C48700218960 /* Extension */ = {
+		058266C02D27C48700218960 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				058266C22D27C49D00218960 /* ReusableIdentifier+.swift */,
@@ -227,10 +230,10 @@
 				058266C42D27C4FD00218960 /* UIView+.swift */,
 				058266C62D27C52000218960 /* UIStackView+.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		058266C12D27C48B00218960 /* Base */ = {
+		058266C12D27C48B00218960 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
 				058266C82D27C55A00218960 /* BaseCollectionViewCell.swift */,
@@ -239,16 +242,16 @@
 				058266CC2D27C5A100218960 /* BaseViewController.swift */,
 				058266CE2D27C5B400218960 /* BaseView.swift */,
 			);
-			path = Base;
+			path = Bases;
 			sourceTree = "<group>";
 		};
-		058267332D2BCF4A00218960 /* Component */ = {
+		058267332D2BCF4A00218960 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				058267342D2BCF5F00218960 /* SearchView.swift */,
 				0582673B2D2D197900218960 /* ProfileImageFullScreenView.swift */,
 			);
-			path = Component;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		058268772D32D9C200218960 /* Model */ = {
@@ -317,9 +320,9 @@
 		0582689B2D350DA000218960 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				058266C12D27C48B00218960 /* Base */,
-				058267332D2BCF4A00218960 /* Component */,
-				058266C02D27C48700218960 /* Extension */,
+				058266C12D27C48B00218960 /* Bases */,
+				058267332D2BCF4A00218960 /* Components */,
+				058266C02D27C48700218960 /* Extensions */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -344,29 +347,18 @@
 		059C05A12D35869900AA534F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				059C05A22D3586AC00AA534F /* Models */,
+				059C05A22D3586AC00AA534F /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		059C05A22D3586AC00AA534F /* Models */ = {
+		059C05A22D3586AC00AA534F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				058268952D3504A900218960 /* User.swift */,
 				05F681742D4651E00030F578 /* Clan.swift */,
 			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		059C05A32D35872B00AA534F /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				058266B32D27BDC500218960 /* MainTabBar */,
-				058266B62D27BE6C00218960 /* Search */,
-				058266BD2D27BEB500218960 /* BlackList */,
-				058266BE2D27BEBB00218960 /* Profile */,
-			);
-			path = Scenes;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		059C05A42D35880000AA534F /* Model */ = {
