@@ -10,5 +10,6 @@ target 'SALog' do
   pod 'Then'
   pod 'Moya', '~> 15.0'
   pod 'Alamofire'
+  pod 'Kingfisher'
 
 end
