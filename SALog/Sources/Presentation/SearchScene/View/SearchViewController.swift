@@ -100,6 +100,7 @@ final class SearchViewController: BaseViewController {
         )
 
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
     }
 
     override func setHierarchy() {
@@ -244,5 +245,9 @@ extension SearchViewController: UITableViewDelegate {
             let clanName = viewModel.searchClanNameResults[indexPath.row]
             print("DEBUG: Clicked \(clanName.clanName)")
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }
