@@ -47,6 +47,12 @@ final class SearchViewController: BaseViewController {
         registerCells()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
     // MARK: - Actions
 
     @objc private func nicknameButtonTapped() {
@@ -239,8 +245,10 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch viewModel.searchType {
         case .nickname:
-            let nickname = viewModel.searchNicknameResults[indexPath.row]
-            print("DEBUG: Clicked \(nickname.userNickname)")
+            let viewModel = ProfileViewModel()
+            let profileVC = ProfileViewController(viewModel: viewModel)
+            navigationController?.setNavigationBarHidden(false, animated: true)
+            navigationController?.pushViewController(profileVC, animated: true)
         case .clan:
             let clanName = viewModel.searchClanNameResults[indexPath.row]
             print("DEBUG: Clicked \(clanName.clanName)")
