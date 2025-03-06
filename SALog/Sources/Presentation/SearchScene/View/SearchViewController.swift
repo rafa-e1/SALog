@@ -247,7 +247,6 @@ extension SearchViewController: UITableViewDelegate {
         case .nickname:
             let viewModel = ProfileViewModel()
             let profileVC = ProfileViewController(viewModel: viewModel)
-            navigationController?.setNavigationBarHidden(false, animated: true)
             navigationController?.pushViewController(profileVC, animated: true)
         case .clan:
             let clanName = viewModel.searchClanNameResults[indexPath.row]
