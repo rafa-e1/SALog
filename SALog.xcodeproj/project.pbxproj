@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05096F832D7A780200563E91 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096F822D7A780200563E91 /* ProfileTarget.swift */; };
 		058266AA2D27BD1500218960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058266A42D27BD1500218960 /* Assets.xcassets */; };
 		058266AC2D27BD1500218960 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 058266A72D27BD1500218960 /* LaunchScreen.storyboard */; };
 		058266AD2D27BD1500218960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058266A32D27BD1500218960 /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05096F822D7A780200563E91 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
 		0582667B2D27BCA000218960 /* SALog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SALog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		058266A32D27BD1500218960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		058266A42D27BD1500218960 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05096F812D7A77F300563E91 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				05096F822D7A780200563E91 /* ProfileTarget.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		058266722D27BCA000218960 = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +294,7 @@
 			children = (
 				0582688A2D34F39E00218960 /* Core */,
 				0582688B2D34F3C400218960 /* Search */,
+				05096F812D7A77F300563E91 /* Profile */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -595,6 +606,7 @@
 				058268872D34F07000218960 /* NetworkEnvironment.swift in Sources */,
 				059C06702D3944B000AA534F /* BaseTableViewCell.swift in Sources */,
 				05F6817C2D465D970030F578 /* ClanNameSearchResponseDTO.swift in Sources */,
+				05096F832D7A780200563E91 /* ProfileTarget.swift in Sources */,
 				058266BC2D27BEAC00218960 /* ProfileViewController.swift in Sources */,
 				058266C32D27C49D00218960 /* ReusableIdentifier+.swift in Sources */,
 				058267372D2BDA0C00218960 /* UIButton+.swift in Sources */,
