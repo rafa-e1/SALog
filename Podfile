@@ -6,10 +6,12 @@ target 'SALog' do
   use_frameworks!
 
   # Pods for SALog
-  pod 'SnapKit', '~> 5.7.0'
+  pod 'SnapKit'
   pod 'Then'
-  pod 'Moya', '~> 15.0'
+  pod 'Moya'
   pod 'Alamofire'
   pod 'Kingfisher'
+  pod 'RxCocoa'
+  pod 'RxSwift'
 
 end
