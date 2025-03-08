@@ -159,8 +159,8 @@
 			children = (
 				058266B12D27BD7200218960 /* Application */,
 				058266B22D27BD8300218960 /* Presentation */,
-				059C05A12D35869900AA534F /* Domain */,
 				059C05AB2D35886100AA534F /* Data */,
+				059C05A12D35869900AA534F /* Domain */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
