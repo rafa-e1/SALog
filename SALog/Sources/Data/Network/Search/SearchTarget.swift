@@ -41,8 +41,4 @@ extension SearchTarget: TargetType {
             "Accept": "application/json"
         ]
     }
-
-    var validationType: ValidationType {
-        return .successCodes
-    }
 }
