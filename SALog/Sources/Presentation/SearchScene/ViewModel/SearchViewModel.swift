@@ -5,7 +5,8 @@
 //  Created by RAFA on 1/13/25.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
 
 protocol SearchViewModelDelegate: AnyObject {
     func didUpdateSearchResults()
