@@ -8,10 +8,7 @@
 import Moya
 
 protocol NetworkServiceProtocol {
-    func request<T: Decodable>(
-        _ target: TargetType,
-        completion: @escaping (Result<T, Error>) -> Void
-    )
+    func request<T: Decodable>(_ target: TargetType) async throws -> T
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -22,29 +19,23 @@ final class NetworkService: NetworkServiceProtocol {
         self.provider = provider
     }
 
-    func request<T: Decodable>(
-        _ target: TargetType,
-        completion: @escaping (Result<T, Error>) -> Void
-    ) {
-        provider.request(MultiTarget(target)) { result in
-            switch result {
-            case .success(let response):
-                let jsonString = String(data: response.data, encoding: .utf8)
-                print("DEBUG: JSON Response - \(String(describing: jsonString))")
-
-                do {
-                    let decodedData = try JSONDecoder().decode(
-                        T.self,
-                        from: response.data
-                    )
-                    print("DEBUG: Decoded Data - \(decodedData)")
-                    completion(.success(decodedData))
-                } catch {
-                    print("DEBUG: Decoding error - \(error.localizedDescription)")
-                    completion(.failure(error))
+    func request<T: Decodable>(_ target: TargetType) async throws -> T {
+        return try await withCheckedThrowingContinuation { continuation in
+            provider.request(MultiTarget(target)) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let decodedData = try JSONDecoder().decode(T.self, from: response.data)
+                        print("DEBUG: Decoded Response - \(decodedData)")
+                        continuation.resume(returning: decodedData)
+                    } catch {
+                        print("DEBUG: Decoding Error - \(error.localizedDescription)")
+                        continuation.resume(throwing: error)
+                    }
+                case .failure(let error):
+                    print("DEBUG: Network Request Error - \(error.localizedDescription)")
+                    continuation.resume(throwing: error)
                 }
-            case .failure(let error):
-                completion(.failure(error))
             }
         }
     }
