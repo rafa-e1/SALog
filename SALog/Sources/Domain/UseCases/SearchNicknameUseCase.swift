@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class SearchNicknameUseCase {
+protocol SearchNicknameUseCaseProtocol {
+    func execute(nickname: String) async throws -> SearchResult
+}
+
+final class SearchNicknameUseCase: SearchNicknameUseCaseProtocol {
 
     private let repository: SearchRepositoryProtocol
 
