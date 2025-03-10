@@ -33,7 +33,7 @@ struct CharacterListResultResponseDTO: Decodable {
 
 extension SearchResultResponseDTO {
 
-    func toDomain() -> SearchResult {
+    func toDomain() -> SearchNicknameResult {
         return .init(rtnCode: rtnCode, message: message, result: result.toDomain())
     }
 }

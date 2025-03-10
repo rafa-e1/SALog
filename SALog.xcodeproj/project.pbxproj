@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05096F832D7A780200563E91 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096F822D7A780200563E91 /* ProfileTarget.swift */; };
-		05096FC72D7EBD5900563E91 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FC62D7EBD5900563E91 /* SearchResult.swift */; };
+		05096FC72D7EBD5900563E91 /* SearchNicknameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FC62D7EBD5900563E91 /* SearchNicknameResult.swift */; };
 		05096FC92D7EC14800563E91 /* SearchResultResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FC82D7EC14800563E91 /* SearchResultResponseDTO.swift */; };
 		05096FCC2D7EC39C00563E91 /* SearchRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FCB2D7EC39C00563E91 /* SearchRepositoryProtocol.swift */; };
 		05096FD02D7EC54800563E91 /* SearchNicknameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FCF2D7EC54800563E91 /* SearchNicknameUseCase.swift */; };
@@ -58,7 +58,7 @@
 
 /* Begin PBXFileReference section */
 		05096F822D7A780200563E91 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
-		05096FC62D7EBD5900563E91 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		05096FC62D7EBD5900563E91 /* SearchNicknameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNicknameResult.swift; sourceTree = "<group>"; };
 		05096FC82D7EC14800563E91 /* SearchResultResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponseDTO.swift; sourceTree = "<group>"; };
 		05096FCB2D7EC39C00563E91 /* SearchRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryProtocol.swift; sourceTree = "<group>"; };
 		05096FCF2D7EC54800563E91 /* SearchNicknameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNicknameUseCase.swift; sourceTree = "<group>"; };
@@ -401,7 +401,7 @@
 			children = (
 				058268952D3504A900218960 /* CharacterInfo.swift */,
 				05F681742D4651E00030F578 /* ClanInfo.swift */,
-				05096FC62D7EBD5900563E91 /* SearchResult.swift */,
+				05096FC62D7EBD5900563E91 /* SearchNicknameResult.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -649,7 +649,7 @@
 				058266AE2D27BD1500218960 /* SceneDelegate.swift in Sources */,
 				05096FD02D7EC54800563E91 /* SearchNicknameUseCase.swift in Sources */,
 				05F681752D4651E00030F578 /* ClanInfo.swift in Sources */,
-				05096FC72D7EBD5900563E91 /* SearchResult.swift in Sources */,
+				05096FC72D7EBD5900563E91 /* SearchNicknameResult.swift in Sources */,
 				058266CD2D27C5A100218960 /* BaseViewController.swift in Sources */,
 				058268702D32CD9800218960 /* ProfileMenuTab.swift in Sources */,
 				058266C52D27C4FD00218960 /* UIView+.swift in Sources */,
