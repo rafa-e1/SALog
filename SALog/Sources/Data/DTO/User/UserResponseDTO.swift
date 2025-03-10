@@ -21,8 +21,8 @@ struct UserResponseDTO: Decodable {
 
 extension UserResponseDTO {
     
-    func toDomain() -> User {
-        return User(
+    func toDomain() -> CharacterInfo {
+        return CharacterInfo(
             userNexonSN: userNexonSN ?? -1,
             userNickname: userNickname ?? "Unknown",
             userImageURL: userImageURL ?? ""

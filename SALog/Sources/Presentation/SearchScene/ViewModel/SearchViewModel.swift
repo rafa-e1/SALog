@@ -20,7 +20,7 @@ final class SearchViewModel {
     weak var delegate: SearchViewModelDelegate?
     private let searchService: SearchServiceProtocol
 
-    private(set) var searchNicknameResults: [User] = []
+    private(set) var searchNicknameResults: [CharacterInfo] = []
     private(set) var searchClanNameResults: [Clan] = []
     private(set) var searchType: SearchType = .nickname
     private var currentQuery: String = ""

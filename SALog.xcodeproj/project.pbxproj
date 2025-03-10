@@ -42,7 +42,7 @@
 		0582688D2D35042700218960 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582688C2D35042700218960 /* BaseResponse.swift */; };
 		058268902D35045D00218960 /* NicknameSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582688F2D35045D00218960 /* NicknameSearchResponseDTO.swift */; };
 		058268922D35047900218960 /* UserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268912D35047900218960 /* UserResponseDTO.swift */; };
-		058268962D3504A900218960 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268952D3504A900218960 /* User.swift */; };
+		058268962D3504A900218960 /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268952D3504A900218960 /* CharacterInfo.swift */; };
 		0582689A2D3504C400218960 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268992D3504C400218960 /* SearchType.swift */; };
 		059C05AA2D35882200AA534F /* BlackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C05A82D35882200AA534F /* BlackListViewController.swift */; };
 		059C066E2D39448B00AA534F /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C066D2D39448B00AA534F /* SearchResultCell.swift */; };
@@ -92,7 +92,7 @@
 		0582688C2D35042700218960 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		0582688F2D35045D00218960 /* NicknameSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSearchResponseDTO.swift; sourceTree = "<group>"; };
 		058268912D35047900218960 /* UserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseDTO.swift; sourceTree = "<group>"; };
-		058268952D3504A900218960 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		058268952D3504A900218960 /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
 		058268992D3504C400218960 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 		059C05A82D35882200AA534F /* BlackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListViewController.swift; sourceTree = "<group>"; };
 		059C066D2D39448B00AA534F /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 		059C05A22D3586AC00AA534F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				058268952D3504A900218960 /* User.swift */,
+				058268952D3504A900218960 /* CharacterInfo.swift */,
 				05F681742D4651E00030F578 /* Clan.swift */,
 			);
 			path = Entities;
@@ -602,7 +602,7 @@
 			files = (
 				058266CB2D27C58100218960 /* BaseCollectionReusableView.swift in Sources */,
 				058266CF2D27C5B400218960 /* BaseView.swift in Sources */,
-				058268962D3504A900218960 /* User.swift in Sources */,
+				058268962D3504A900218960 /* CharacterInfo.swift in Sources */,
 				058268872D34F07000218960 /* NetworkEnvironment.swift in Sources */,
 				059C06702D3944B000AA534F /* BaseTableViewCell.swift in Sources */,
 				05F6817C2D465D970030F578 /* ClanNameSearchResponseDTO.swift in Sources */,

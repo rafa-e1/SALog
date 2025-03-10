@@ -10,7 +10,7 @@ import Foundation
 protocol SearchServiceProtocol {
     func searchByNickname(
         _ nickname: String,
-        completion: @escaping (Result<[User], Error>) -> Void
+        completion: @escaping (Result<[CharacterInfo], Error>) -> Void
     )
 
     func searchByClanName(
@@ -29,7 +29,7 @@ final class SearchService: SearchServiceProtocol {
 
     func searchByNickname(
         _ nickname: String,
-        completion: @escaping (Result<[User], Error>) -> Void
+        completion: @escaping (Result<[CharacterInfo], Error>) -> Void
     ) {
         networkService.request(
             SearchTarget.searchByNickname(nickname: nickname)
