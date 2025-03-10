@@ -50,7 +50,7 @@
 		059C05AA2D35882200AA534F /* BlackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C05A82D35882200AA534F /* BlackListViewController.swift */; };
 		059C066E2D39448B00AA534F /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C066D2D39448B00AA534F /* SearchResultCell.swift */; };
 		059C06702D3944B000AA534F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C066F2D3944B000AA534F /* BaseTableViewCell.swift */; };
-		05F681752D4651E00030F578 /* Clan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F681742D4651E00030F578 /* Clan.swift */; };
+		05F681752D4651E00030F578 /* ClanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F681742D4651E00030F578 /* ClanInfo.swift */; };
 		05F681782D4652DB0030F578 /* ClanResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F681772D4652DB0030F578 /* ClanResponseDTO.swift */; };
 		05F6817C2D465D970030F578 /* ClanNameSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6817B2D465D970030F578 /* ClanNameSearchResponseDTO.swift */; };
 		D02987EC61866F0C6DB665B1 /* Pods_SALog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */; };
@@ -103,7 +103,7 @@
 		059C05A82D35882200AA534F /* BlackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListViewController.swift; sourceTree = "<group>"; };
 		059C066D2D39448B00AA534F /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		059C066F2D3944B000AA534F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		05F681742D4651E00030F578 /* Clan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clan.swift; sourceTree = "<group>"; };
+		05F681742D4651E00030F578 /* ClanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanInfo.swift; sourceTree = "<group>"; };
 		05F681772D4652DB0030F578 /* ClanResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanResponseDTO.swift; sourceTree = "<group>"; };
 		05F6817B2D465D970030F578 /* ClanNameSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanNameSearchResponseDTO.swift; sourceTree = "<group>"; };
 		3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SALog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -400,7 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				058268952D3504A900218960 /* CharacterInfo.swift */,
-				05F681742D4651E00030F578 /* Clan.swift */,
+				05F681742D4651E00030F578 /* ClanInfo.swift */,
 				05096FC62D7EBD5900563E91 /* SearchResult.swift */,
 			);
 			path = Entities;
@@ -648,7 +648,7 @@
 				0582687B2D32D9FD00218960 /* ProfileViewModel.swift in Sources */,
 				058266AE2D27BD1500218960 /* SceneDelegate.swift in Sources */,
 				05096FD02D7EC54800563E91 /* SearchNicknameUseCase.swift in Sources */,
-				05F681752D4651E00030F578 /* Clan.swift in Sources */,
+				05F681752D4651E00030F578 /* ClanInfo.swift in Sources */,
 				05096FC72D7EBD5900563E91 /* SearchResult.swift in Sources */,
 				058266CD2D27C5A100218960 /* BaseViewController.swift in Sources */,
 				058268702D32CD9800218960 /* ProfileMenuTab.swift in Sources */,

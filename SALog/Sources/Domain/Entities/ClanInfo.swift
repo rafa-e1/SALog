@@ -1,5 +1,5 @@
 //
-//  Clan.swift
+//  ClanInfo.swift
 //  SALog
 //
 //  Created by RAFA on 1/26/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Clan {
+struct ClanInfo {
     let clanID: String
     let clanName: String
     let clanMark1: String

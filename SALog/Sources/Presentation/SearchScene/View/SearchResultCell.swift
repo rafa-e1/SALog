@@ -20,7 +20,7 @@ final class SearchResultCell: BaseTableViewCell {
 
     // MARK: - Helpers
 
-    func configure(type: SearchType, user: CharacterInfo? = nil, clan: Clan? = nil) {
+    func configure(type: SearchType, user: CharacterInfo? = nil, clan: ClanInfo? = nil) {
         switch type {
         case .nickname:
             guard let user = user else { return }

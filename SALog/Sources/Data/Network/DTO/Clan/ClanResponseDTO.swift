@@ -23,8 +23,8 @@ struct ClanResponseDTO: Decodable {
 
 extension ClanResponseDTO {
 
-    func toDomain() -> Clan {
-        return Clan(
+    func toDomain() -> ClanInfo {
+        return ClanInfo(
             clanID: clanID,
             clanName: clanName,
             clanMark1: clanMark1,
