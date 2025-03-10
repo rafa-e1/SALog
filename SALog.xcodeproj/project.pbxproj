@@ -42,7 +42,7 @@
 		058268892D34F1F400218960 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268882D34F1F400218960 /* SearchService.swift */; };
 		0582688D2D35042700218960 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582688C2D35042700218960 /* BaseResponse.swift */; };
 		058268902D35045D00218960 /* NicknameSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582688F2D35045D00218960 /* NicknameSearchResponseDTO.swift */; };
-		058268922D35047900218960 /* UserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268912D35047900218960 /* UserResponseDTO.swift */; };
+		058268922D35047900218960 /* CharacterInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268912D35047900218960 /* CharacterInfoResponseDTO.swift */; };
 		058268962D3504A900218960 /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268952D3504A900218960 /* CharacterInfo.swift */; };
 		0582689A2D3504C400218960 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268992D3504C400218960 /* SearchType.swift */; };
 		059C05AA2D35882200AA534F /* BlackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C05A82D35882200AA534F /* BlackListViewController.swift */; };
@@ -93,7 +93,7 @@
 		058268882D34F1F400218960 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		0582688C2D35042700218960 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		0582688F2D35045D00218960 /* NicknameSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSearchResponseDTO.swift; sourceTree = "<group>"; };
-		058268912D35047900218960 /* UserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseDTO.swift; sourceTree = "<group>"; };
+		058268912D35047900218960 /* CharacterInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoResponseDTO.swift; sourceTree = "<group>"; };
 		058268952D3504A900218960 /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
 		058268992D3504C400218960 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
 		059C05A82D35882200AA534F /* BlackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListViewController.swift; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				05F681762D4652700030F578 /* Clan */,
-				0582689D2D350EDE00218960 /* User */,
+				0582689D2D350EDE00218960 /* CharacterInfo */,
 				0582689C2D350EB800218960 /* Search */,
 			);
 			path = DTO;
@@ -357,17 +357,18 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		0582689D2D350EDE00218960 /* User */ = {
+		0582689D2D350EDE00218960 /* CharacterInfo */ = {
 			isa = PBXGroup;
 			children = (
-				058268912D35047900218960 /* UserResponseDTO.swift */,
+				058268912D35047900218960 /* CharacterInfoResponseDTO.swift */,
 			);
-			path = User;
+			path = CharacterInfo;
 			sourceTree = "<group>";
 		};
 		059C05A12D35869900AA534F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				05096FCA2D7EC38300563E91 /* Repositories */,
 				05096FC52D7EBA2500563E91 /* UseCases */,
 				059C05A22D3586AC00AA534F /* Entities */,
 			);
@@ -644,7 +645,8 @@
 				058266B52D27BDE800218960 /* MainTabBarController.swift in Sources */,
 				059C05AA2D35882200AA534F /* BlackListViewController.swift in Sources */,
 				058268762D32CE3500218960 /* ProfileMatchHistoryCell.swift in Sources */,
-				058268922D35047900218960 /* UserResponseDTO.swift in Sources */,
+				05096FCC2D7EC39C00563E91 /* SearchRepositoryProtocol.swift in Sources */,
+				058268922D35047900218960 /* CharacterInfoResponseDTO.swift in Sources */,
 				058267392D2D096700218960 /* ProfileCell.swift in Sources */,
 				058266C72D27C52000218960 /* UIStackView+.swift in Sources */,
 				0582673E2D2E8C0600218960 /* ProfileMenuTabReusableView.swift in Sources */,

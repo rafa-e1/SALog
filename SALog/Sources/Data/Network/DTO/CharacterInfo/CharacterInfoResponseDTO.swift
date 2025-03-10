@@ -1,5 +1,5 @@
 //
-//  UserResponseDTO.swift
+//  CharacterInfoResponseDTO.swift
 //  SALog
 //
 //  Created by RAFA on 1/13/25.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct UserResponseDTO: Decodable {
-    let userNexonSN: Int?
-    let userNickname: String?
-    let userImageURL: String?
+struct CharacterInfoResponseDTO: Decodable {
+    let userNexonSN: Int
+    let userNickname: String
+    let userImageURL: String
 
     enum CodingKeys: String, CodingKey {
         case userNexonSN = "user_nexon_sn"
@@ -19,13 +19,13 @@ struct UserResponseDTO: Decodable {
     }
 }
 
-extension UserResponseDTO {
-    
+extension CharacterInfoResponseDTO {
+
     func toDomain() -> CharacterInfo {
         return CharacterInfo(
-            userNexonSN: userNexonSN ?? -1,
-            userNickname: userNickname ?? "Unknown",
-            userImageURL: userImageURL ?? ""
+            userNexonSN: userNexonSN,
+            userNickname: userNickname,
+            userImageURL: userImageURL
         )
     }
 }
