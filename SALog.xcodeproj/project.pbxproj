@@ -127,6 +127,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		05096FC52D7EBA2500563E91 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		058266722D27BCA000218960 = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +304,7 @@
 				0582688A2D34F39E00218960 /* Core */,
 				0582688B2D34F3C400218960 /* Search */,
 				05096F812D7A77F300563E91 /* Profile */,
+				0582688E2D35044800218960 /* DTO */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 		059C05A12D35869900AA534F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				05096FC52D7EBA2500563E91 /* UseCases */,
 				059C05A22D3586AC00AA534F /* Entities */,
 			);
 			path = Domain;
@@ -411,7 +420,6 @@
 		059C05AB2D35886100AA534F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				0582688E2D35044800218960 /* DTO */,
 				0582687E2D34E4DC00218960 /* Network */,
 			);
 			path = Data;
