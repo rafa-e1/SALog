@@ -1,5 +1,5 @@
 //
-//  SearchResultResponseDTO.swift
+//  SearchNicknameResultResponseDTO.swift
 //  SALog
 //
 //  Created by RAFA on 3/10/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchResultResponseDTO: Decodable {
+struct SearchNicknameResultResponseDTO: Decodable {
     let rtnCode: Int
     let message: String?
     let result: CharacterListResultResponseDTO
@@ -31,7 +31,7 @@ struct CharacterListResultResponseDTO: Decodable {
     }
 }
 
-extension SearchResultResponseDTO {
+extension SearchNicknameResultResponseDTO {
 
     func toDomain() -> SearchNicknameResult {
         return .init(rtnCode: rtnCode, message: message, result: result.toDomain())

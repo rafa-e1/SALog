@@ -16,7 +16,7 @@ final class SearchRepository: SearchRepositoryProtocol {
     }
 
     func searchByNickname(_ nickname: String) async throws -> SearchNicknameResult {
-        let response: SearchResultResponseDTO = try await network.request(
+        let response: SearchNicknameResultResponseDTO = try await network.request(
             SearchTarget.searchByNickname(nickname: nickname)
         )
 
