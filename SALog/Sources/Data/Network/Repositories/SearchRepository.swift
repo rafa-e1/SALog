@@ -22,4 +22,12 @@ final class SearchRepository: SearchRepositoryProtocol {
 
         return response.toDomain()
     }
+
+    func searchByClan(_ clanName: String) async throws -> SearchClanResult {
+        let response: SearchClanResultResponseDTO = try await network.request(
+            SearchTarget.searchByClan(clanName: clanName)
+        )
+
+        return response.toDomain()
+    }
 }
