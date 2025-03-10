@@ -46,7 +46,6 @@
 		058268822D34E54500218960 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268812D34E54500218960 /* SearchViewModel.swift */; };
 		058268842D34ECD500218960 /* SearchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268832D34ECD500218960 /* SearchTarget.swift */; };
 		058268872D34F07000218960 /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268862D34F07000218960 /* NetworkEnvironment.swift */; };
-		0582688D2D35042700218960 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582688C2D35042700218960 /* BaseResponse.swift */; };
 		058268922D35047900218960 /* CharacterInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268912D35047900218960 /* CharacterInfoResponseDTO.swift */; };
 		058268962D3504A900218960 /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268952D3504A900218960 /* CharacterInfo.swift */; };
 		0582689A2D3504C400218960 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268992D3504C400218960 /* SearchType.swift */; };
@@ -102,7 +101,6 @@
 		058268832D34ECD500218960 /* SearchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTarget.swift; sourceTree = "<group>"; };
 		058268852D34EEA000218960 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		058268862D34F07000218960 /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
-		0582688C2D35042700218960 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		058268912D35047900218960 /* CharacterInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoResponseDTO.swift; sourceTree = "<group>"; };
 		058268952D3504A900218960 /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
 		058268992D3504C400218960 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
@@ -341,7 +339,6 @@
 		0582688A2D34F39E00218960 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				0582688C2D35042700218960 /* BaseResponse.swift */,
 				058268862D34F07000218960 /* NetworkEnvironment.swift */,
 				0582687F2D34E4F600218960 /* NetworkService.swift */,
 			);
@@ -671,7 +668,6 @@
 				05096FD52D7EDDDF00563E91 /* SearchClanResult.swift in Sources */,
 				058268722D32CE2200218960 /* ProfileMapLevelCell.swift in Sources */,
 				0582673C2D2D197900218960 /* ProfileImageFullScreenView.swift in Sources */,
-				0582688D2D35042700218960 /* BaseResponse.swift in Sources */,
 				0582686E2D32CC2F00218960 /* ProfileBasicInfoCell.swift in Sources */,
 				05F681782D4652DB0030F578 /* ClanInfoResponseDTO.swift in Sources */,
 				058268742D32CE2B00218960 /* ProfileRankInfoCell.swift in Sources */,
