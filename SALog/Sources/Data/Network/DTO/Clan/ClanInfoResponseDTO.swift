@@ -1,5 +1,5 @@
 //
-//  ClanResponseDTO.swift
+//  ClanInfoResponseDTO.swift
 //  SALog
 //
 //  Created by RAFA on 1/26/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ClanResponseDTO: Decodable {
+struct ClanInfoResponseDTO: Decodable {
     let clanID: String
     let clanName: String
     let clanMark1: String
@@ -21,10 +21,10 @@ struct ClanResponseDTO: Decodable {
     }
 }
 
-extension ClanResponseDTO {
+extension ClanInfoResponseDTO {
 
     func toDomain() -> ClanInfo {
-        return ClanInfo(
+        return .init(
             clanID: clanID,
             clanName: clanName,
             clanMark1: clanMark1,

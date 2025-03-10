@@ -8,7 +8,7 @@
 import Foundation
 
 struct ClanNameSearchResponseDTO: Decodable {
-    let clanInfo: [ClanResponseDTO]?
+    let clanInfo: [ClanInfoResponseDTO]?
 
     enum CodingKeys: String, CodingKey {
         case clanInfo = "clanInfo"

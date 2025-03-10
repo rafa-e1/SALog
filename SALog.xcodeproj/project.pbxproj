@@ -53,7 +53,7 @@
 		059C066E2D39448B00AA534F /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C066D2D39448B00AA534F /* SearchResultCell.swift */; };
 		059C06702D3944B000AA534F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C066F2D3944B000AA534F /* BaseTableViewCell.swift */; };
 		05F681752D4651E00030F578 /* ClanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F681742D4651E00030F578 /* ClanInfo.swift */; };
-		05F681782D4652DB0030F578 /* ClanResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F681772D4652DB0030F578 /* ClanResponseDTO.swift */; };
+		05F681782D4652DB0030F578 /* ClanInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F681772D4652DB0030F578 /* ClanInfoResponseDTO.swift */; };
 		05F6817C2D465D970030F578 /* ClanNameSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6817B2D465D970030F578 /* ClanNameSearchResponseDTO.swift */; };
 		D02987EC61866F0C6DB665B1 /* Pods_SALog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */; };
 /* End PBXBuildFile section */
@@ -108,7 +108,7 @@
 		059C066D2D39448B00AA534F /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		059C066F2D3944B000AA534F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		05F681742D4651E00030F578 /* ClanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanInfo.swift; sourceTree = "<group>"; };
-		05F681772D4652DB0030F578 /* ClanResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanResponseDTO.swift; sourceTree = "<group>"; };
+		05F681772D4652DB0030F578 /* ClanInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanInfoResponseDTO.swift; sourceTree = "<group>"; };
 		05F6817B2D465D970030F578 /* ClanNameSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanNameSearchResponseDTO.swift; sourceTree = "<group>"; };
 		3D8B365F2D2788EED3D56680 /* Pods_SALog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SALog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBEA1788124AE2C50D1FBEB /* Pods-SALog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SALog.release.xcconfig"; path = "Target Support Files/Pods-SALog/Pods-SALog.release.xcconfig"; sourceTree = "<group>"; };
@@ -501,7 +501,7 @@
 		05F681762D4652700030F578 /* Clan */ = {
 			isa = PBXGroup;
 			children = (
-				05F681772D4652DB0030F578 /* ClanResponseDTO.swift */,
+				05F681772D4652DB0030F578 /* ClanInfoResponseDTO.swift */,
 			);
 			path = Clan;
 			sourceTree = "<group>";
@@ -669,7 +669,7 @@
 				0582673C2D2D197900218960 /* ProfileImageFullScreenView.swift in Sources */,
 				0582688D2D35042700218960 /* BaseResponse.swift in Sources */,
 				0582686E2D32CC2F00218960 /* ProfileBasicInfoCell.swift in Sources */,
-				05F681782D4652DB0030F578 /* ClanResponseDTO.swift in Sources */,
+				05F681782D4652DB0030F578 /* ClanInfoResponseDTO.swift in Sources */,
 				058268742D32CE2B00218960 /* ProfileRankInfoCell.swift in Sources */,
 				058267352D2BCF5F00218960 /* SearchView.swift in Sources */,
 				058266B52D27BDE800218960 /* MainTabBarController.swift in Sources */,
