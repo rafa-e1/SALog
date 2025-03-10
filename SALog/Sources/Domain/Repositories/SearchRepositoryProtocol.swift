@@ -9,4 +9,5 @@ import Foundation
 
 protocol SearchRepositoryProtocol {
     func searchByNickname(_ nickname: String) async throws -> SearchNicknameResult
+    func searchByClan(_ clanName: String) async throws -> SearchClanResult
 }
