@@ -16,8 +16,6 @@ final class SearchViewModel: SearchViewModelProtocol {
 
     // MARK: - Properties
 
-//    private let searchNicknameUseCase: SearchNicknameUseCaseProtocol
-//    private let searchClanUseCase: SearchClanUseCaseProtocol
     private let useCase: SearchUseCaseProtocol
 
     private let searchResultsRelay = BehaviorRelay<[SearchResultType]>(value: [])
@@ -31,14 +29,6 @@ final class SearchViewModel: SearchViewModelProtocol {
     init(useCase: SearchUseCaseProtocol) {
         self.useCase = useCase
     }
-
-//    init(
-//        searchNicknameUseCase: SearchNicknameUseCaseProtocol,
-//        searchClanUseCase: SearchClanUseCaseProtocol
-//    ) {
-//        self.searchNicknameUseCase = searchNicknameUseCase
-//        self.searchClanUseCase = searchClanUseCase
-//    }
 
     // MARK: - Input
 
