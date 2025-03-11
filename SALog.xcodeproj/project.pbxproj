@@ -356,8 +356,8 @@
 		0582688E2D35044800218960 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				05F681762D4652700030F578 /* Clan */,
 				0582689D2D350EDE00218960 /* CharacterInfo */,
+				05F681762D4652700030F578 /* Clan */,
 				0582689C2D350EB800218960 /* Search */,
 			);
 			path = DTOs;
