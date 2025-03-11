@@ -151,27 +151,19 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		05096FDC2D8016DD00563E91 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				05096FDD2D8016E800563E91 /* DomainConvertible.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		05096FE12D801AE500563E91 /* EndPoints */ = {
 			isa = PBXGroup;
 			children = (
-				05096FE42D801C3A00563E91 /* Protocols */,
 				058268832D34ECD500218960 /* SearchEndPoint.swift */,
 			);
 			path = EndPoints;
 			sourceTree = "<group>";
 		};
-		05096FE42D801C3A00563E91 /* Protocols */ = {
+		05096FE52D80232B00563E91 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				05096FE22D801BE400563E91 /* APIEndpoint.swift */,
+				05096FDD2D8016E800563E91 /* DomainConvertible.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -347,6 +339,7 @@
 				0582688E2D35044800218960 /* DTOs */,
 				05096FE12D801AE500563E91 /* EndPoints */,
 				05096FD12D7EC5E200563E91 /* Repositories */,
+				05096FE52D80232B00563E91 /* Protocols */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -363,7 +356,6 @@
 		0582688E2D35044800218960 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				05096FDC2D8016DD00563E91 /* Protocols */,
 				058268912D35047900218960 /* CharacterInfoResponseDTO.swift */,
 				05F681772D4652DB0030F578 /* ClanInfoResponseDTO.swift */,
 				05096FC82D7EC14800563E91 /* SearchNicknameResultResponseDTO.swift */,
