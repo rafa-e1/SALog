@@ -5,32 +5,32 @@
 //  Created by RAFA on 1/3/25.
 //
 
-import UIKit
+
+import RxCocoa
+import RxSwift
 
 final class SearchViewController: BaseViewController {
 
     // MARK: - Properties
+
+    private let viewModel: SearchViewModelProtocol
 
     private let nicknameButton = UIButton()
     private let clanNameButton = UIButton()
     private let radioButtonsStackView = UIStackView()
     private let searchBar = SearchView()
     private let tableView = UITableView()
-
-    private let viewModel: SearchViewModel
-
-    private var isNicknameSelected = true {
-        didSet {
-            updateUIForSelection()
-            viewModel.updateSearchType(isNicknameSelected ? .nickname : .clan)
-        }
-    }
+    private let activityIndicatorView = UIActivityIndicatorView(style: .large)
+    private let searchTypeRelay = BehaviorRelay<SearchType>(value: .nickname)
 
     // MARK: - Initializer
 
-    init(viewModel: SearchViewModel = SearchViewModel()) {
+    init(viewModel: SearchViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+
+        setTableView()
+        bindViewModel()
     }
 
     required init?(coder: NSCoder) {
@@ -39,56 +39,98 @@ final class SearchViewController: BaseViewController {
 
     // MARK: - Lifecycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setAddTargets()
-        setDelegates()
-        registerCells()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
-    // MARK: - Actions
+    // MARK: - Bindings
 
-    @objc private func nicknameButtonTapped() {
-        guard !isNicknameSelected else { return }
+    private func bindViewModel() {
+        let input = SearchViewModel.Input(
+            searchType: searchTypeRelay.asObservable(),
+            query: searchBar.textField.rx.text.orEmpty.asObservable()
+        )
 
-        isNicknameSelected = true
-        triggerSearchBasedOnCurrentText()
-    }
+        let output = viewModel.transform(input: input)
 
-    @objc private func clanNameButtonTapped() {
-        guard isNicknameSelected else { return }
+        searchTypeRelay
+            .flatMap { type in
+                output.results.map { results in
+                    results.filter { $0.isMatchingType(type) }
+                }
+            }
+            .bind(to: tableView.rx.items(
+                cellIdentifier: SearchResultCell.identifier,
+                cellType: SearchResultCell.self
+            )) { _, item, cell in
+                switch item {
+                case .nickname(let user):
+                    cell.configure(type: .nickname, user: user)
+                case .clan(let clan):
+                    cell.configure(type: .clan, clan: clan)
+                }
+            }
+            .disposed(by: disposeBag)
 
-        isNicknameSelected = false
-        triggerSearchBasedOnCurrentText()
+        output.isLoading
+            .bind(to: activityIndicatorView.rx.isAnimating)
+            .disposed(by: disposeBag)
+
+        output.errorMessage.bind { [weak self] error in
+            let alert = UIAlertController(title: "에러", message: error, preferredStyle: .alert)
+            alert.addAction(.init(title: "확인", style: .default))
+            self?.present(alert, animated: true)
+        }.disposed(by: disposeBag)
+
+        nicknameButton.rx.tap
+            .bind { [weak self] in
+                guard let self = self,
+                      self.searchTypeRelay.value != .nickname
+                else {
+                    return
+                }
+
+                self.searchTypeRelay.accept(.nickname)
+                self.updateSearchTypeUI(isNicknameSelected: true)
+            }
+            .disposed(by: disposeBag)
+
+        clanNameButton.rx.tap
+            .bind { [weak self] in
+                guard let self = self,
+                      self.searchTypeRelay.value != .clan
+                else {
+                    return
+                }
+
+                self.searchTypeRelay.accept(.clan)
+                self.updateSearchTypeUI(isNicknameSelected: false)
+            }
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Helpers
 
-    private func setDelegates() {
-        searchBar.delegate = self
-        viewModel.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-
-    private func registerCells() {
+    private func setTableView() {
         tableView.register(
             SearchResultCell.self,
             forCellReuseIdentifier: SearchResultCell.identifier
         )
+
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
 
-    private func triggerSearchBasedOnCurrentText() {
-        let currentText = searchBar.textField.text ?? ""
-        viewModel.updateSearchType(isNicknameSelected ? .nickname : .clan)
-        viewModel.search(query: currentText)
+    private func updateSearchTypeUI(isNicknameSelected: Bool) {
+        UIView.animate(withDuration: 0.3) {
+            self.nicknameButton.createRadioButton("닉네임", isSelected: isNicknameSelected)
+            self.clanNameButton.createRadioButton("클랜명", isSelected: !isNicknameSelected)
+            self.searchBar.updatePlaceholder(
+                isNicknameSelected ? "닉네임을 입력해 주세요" : "클랜명을 입력해 주세요"
+            )
+        }
     }
 
     // MARK: - UI
@@ -96,8 +138,8 @@ final class SearchViewController: BaseViewController {
     override func setStyle() {
         super.setStyle()
 
-        nicknameButton.createRadioButton("닉네임", isSelected: isNicknameSelected)
-        clanNameButton.createRadioButton("클랜명", isSelected: !isNicknameSelected)
+        nicknameButton.createRadioButton("닉네임", isSelected: true)
+        clanNameButton.createRadioButton("클랜명", isSelected: false)
 
         radioButtonsStackView.configureStackView(
             addArrangedSubviews: [nicknameButton, clanNameButton],
@@ -107,13 +149,16 @@ final class SearchViewController: BaseViewController {
 
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+
+        activityIndicatorView.color = .systemOrange
     }
 
     override func setHierarchy() {
         view.addSubviews(
             radioButtonsStackView,
             searchBar,
-            tableView
+            tableView,
+            activityIndicatorView
         )
     }
 
@@ -132,127 +177,16 @@ final class SearchViewController: BaseViewController {
             $0.top.equalTo(searchBar.snp.bottom).offset(10)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
-    }
 
-    // MARK: - Helpers
-
-    private func setAddTargets() {
-        nicknameButton.addTarget(
-            self,
-            action: #selector(nicknameButtonTapped),
-            for: .touchUpInside
-        )
-
-        clanNameButton.addTarget(
-            self,
-            action: #selector(clanNameButtonTapped),
-            for: .touchUpInside
-        )
-    }
-
-    private func updateUIForSelection() {
-        UIView.animate(withDuration: 0.3) {
-            self.nicknameButton.createRadioButton(
-                "닉네임",
-                isSelected: self.isNicknameSelected
-            )
-
-            self.clanNameButton.createRadioButton(
-                "클랜명",
-                isSelected: !self.isNicknameSelected
-            )
-
-            self.searchBar.updatePlaceholder(
-                self.isNicknameSelected ? "닉네임을 입력해 주세요" : "클랜명을 입력해 주세요"
-            )
+        activityIndicatorView.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
-    }
-}
-
-// MARK: - SearchViewDelegate
-
-extension SearchViewController: SearchViewDelegate {
-
-    func didChangeSearchText(_ text: String) {
-        viewModel.search(query: text)
-    }
-}
-
-// MARK: - SearchViewModelDelegate
-
-extension SearchViewController: SearchViewModelDelegate {
-
-    func didUpdateSearchResults() {
-        tableView.reloadData()
-    }
-
-    func didEncounterError(_ error: Error) {
-        let alert = UIAlertController(
-            title: "Error",
-            message: error.localizedDescription,
-            preferredStyle: .alert
-        )
-        print("DEBUG: \(error.localizedDescription)")
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-    }
-}
-
-// MARK: - UITableViewDataSource
-
-extension SearchViewController: UITableViewDataSource {
-
-    func tableView(
-        _ tableView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
-        switch viewModel.searchType {
-        case .nickname: viewModel.searchNicknameResults.count
-        case .clan: viewModel.searchClanNameResults.count
-        }
-    }
-
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: SearchResultCell.identifier,
-            for: indexPath
-        ) as? SearchResultCell else {
-            return UITableViewCell()
-        }
-
-        switch viewModel.searchType {
-        case .nickname:
-            let result = viewModel.searchNicknameResults[indexPath.row]
-            cell.configure(type: .nickname, user: result)
-        case .clan:
-            let result = viewModel.searchClanNameResults[indexPath.row]
-            cell.configure(type: .clan, clan: result)
-        }
-
-        cell.selectionStyle = .none
-
-        return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 
 extension SearchViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch viewModel.searchType {
-        case .nickname:
-            let viewModel = ProfileViewModel()
-            let profileVC = ProfileViewController(viewModel: viewModel)
-            navigationController?.pushViewController(profileVC, animated: true)
-        case .clan:
-            let clanName = viewModel.searchClanNameResults[indexPath.row]
-            print("DEBUG: Clicked \(clanName.clanName)")
-        }
-    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
