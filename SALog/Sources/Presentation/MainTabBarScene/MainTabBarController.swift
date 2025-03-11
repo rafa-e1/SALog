@@ -22,12 +22,8 @@ final class MainTabBarController: UITabBarController {
     private func configureViewControllers() {
         let network = NetworkService()
         let searchRepository = SearchRepository(network: network)
-        let searchNicknameUseCase = SearchNicknameUseCase(repository: searchRepository)
-        let searchClanUseCase = SearchClanUseCase(repository: searchRepository)
-        let searchViewModel = SearchViewModel(
-            searchNicknameUseCase: searchNicknameUseCase,
-            searchClanUseCase: searchClanUseCase
-        )
+        let searchUseCase = SearchUseCase(repository: searchRepository)
+        let searchViewModel = SearchViewModel(useCase: searchUseCase)
         
         let search = createNavigationController(
             title: "",

@@ -16,8 +16,9 @@ final class SearchViewModel: SearchViewModelProtocol {
 
     // MARK: - Properties
 
-    private let searchNicknameUseCase: SearchNicknameUseCaseProtocol
-    private let searchClanUseCase: SearchClanUseCaseProtocol
+//    private let searchNicknameUseCase: SearchNicknameUseCaseProtocol
+//    private let searchClanUseCase: SearchClanUseCaseProtocol
+    private let useCase: SearchUseCaseProtocol
 
     private let searchResultsRelay = BehaviorRelay<[SearchResultType]>(value: [])
     private let isLoadingRelay = BehaviorRelay<Bool>(value: false)
@@ -27,13 +28,17 @@ final class SearchViewModel: SearchViewModelProtocol {
 
     // MARK: - Initializer
 
-    init(
-        searchNicknameUseCase: SearchNicknameUseCaseProtocol,
-        searchClanUseCase: SearchClanUseCaseProtocol
-    ) {
-        self.searchNicknameUseCase = searchNicknameUseCase
-        self.searchClanUseCase = searchClanUseCase
+    init(useCase: SearchUseCaseProtocol) {
+        self.useCase = useCase
     }
+
+//    init(
+//        searchNicknameUseCase: SearchNicknameUseCaseProtocol,
+//        searchClanUseCase: SearchClanUseCaseProtocol
+//    ) {
+//        self.searchNicknameUseCase = searchNicknameUseCase
+//        self.searchClanUseCase = searchClanUseCase
+//    }
 
     // MARK: - Input
 
@@ -112,7 +117,7 @@ final class SearchViewModel: SearchViewModelProtocol {
 
             Task {
                 do {
-                    let result = try await self.searchNicknameUseCase.execute(nickname: query)
+                    let result = try await self.useCase.searchByNickname(query)
                     observer.onNext(result.result.characterInfo.map {
                         SearchResultType.nickname($0)
                     })
@@ -138,7 +143,7 @@ final class SearchViewModel: SearchViewModelProtocol {
             
             Task {
                 do {
-                    let result = try await self.searchClanUseCase.execute(clanName: query)
+                    let result = try await self.useCase.searchByClan(query)
                     observer.onNext(result.result.clanInfo.map {
                         SearchResultType.clan($0)
                     })
