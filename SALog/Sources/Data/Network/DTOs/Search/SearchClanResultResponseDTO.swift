@@ -28,21 +28,3 @@ struct ClanListResultResponseDTO: Decodable {
         case pageNumber = "page_no"
     }
 }
-
-extension SearchClanResultResponseDTO {
-
-    func toDomain() -> SearchClanResult {
-        return .init(message: message, result: result.toDomain())
-    }
-}
-
-extension ClanListResultResponseDTO {
-
-    func toDomain()-> ClanListResult {
-        return .init(
-            clanInfo: clanInfo.map { $0.toDomain() },
-            totalCount: totalCount,
-            pageNumber: pageNumber
-        )
-    }
-}

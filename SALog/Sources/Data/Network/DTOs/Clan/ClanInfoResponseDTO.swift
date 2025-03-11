@@ -20,15 +20,3 @@ struct ClanInfoResponseDTO: Decodable {
         case clanMark2 = "clan_mark2"
     }
 }
-
-extension ClanInfoResponseDTO {
-
-    func toDomain() -> ClanInfo {
-        return .init(
-            clanID: clanID,
-            clanName: clanName,
-            clanMark1: clanMark1,
-            clanMark2: clanMark2
-        )
-    }
-}

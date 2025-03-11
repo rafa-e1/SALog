@@ -18,14 +18,3 @@ struct CharacterInfoResponseDTO: Decodable {
         case userImageURL = "user_img"
     }
 }
-
-extension CharacterInfoResponseDTO {
-
-    func toDomain() -> CharacterInfo {
-        return CharacterInfo(
-            userNexonSN: userNexonSN,
-            userNickname: userNickname,
-            userImageURL: userImageURL
-        )
-    }
-}

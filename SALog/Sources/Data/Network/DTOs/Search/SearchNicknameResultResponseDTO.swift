@@ -30,21 +30,3 @@ struct CharacterListResultResponseDTO: Decodable {
         case pageNumber = "page_no"
     }
 }
-
-extension SearchNicknameResultResponseDTO {
-
-    func toDomain() -> SearchNicknameResult {
-        return .init(rtnCode: rtnCode, message: message, result: result.toDomain())
-    }
-}
-
-extension CharacterListResultResponseDTO {
-
-    func toDomain()-> CharacterListResult {
-        return .init(
-            characterInfo: characterInfo.map { $0.toDomain() },
-            totalCount: totalCount,
-            pageNumber: pageNumber
-        )
-    }
-}
