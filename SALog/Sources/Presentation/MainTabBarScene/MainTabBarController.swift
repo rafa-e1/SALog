@@ -20,11 +20,20 @@ final class MainTabBarController: UITabBarController {
     // MARK: - Helpers
 
     private func configureViewControllers() {
+        let network = NetworkService()
+        let searchRepository = SearchRepository(network: network)
+        let searchNicknameUseCase = SearchNicknameUseCase(repository: searchRepository)
+        let searchClanUseCase = SearchClanUseCase(repository: searchRepository)
+        let searchViewModel = SearchViewModel(
+            searchNicknameUseCase: searchNicknameUseCase,
+            searchClanUseCase: searchClanUseCase
+        )
+        
         let search = createNavigationController(
             title: "",
             unselectedImage: "magnifyingglass",
             selectedImage: "magnifyingglass",
-            rootViewController: SearchViewController()
+            rootViewController: SearchViewController(viewModel: searchViewModel)
         )
 
         let blackList = createNavigationController(
