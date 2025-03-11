@@ -127,14 +127,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05096F812D7A77F300563E91 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				05096F822D7A780200563E91 /* ProfileTarget.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		05096FC52D7EBA2500563E91 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,11 +326,9 @@
 		0582687E2D34E4DC00218960 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				05096FD12D7EC5E200563E91 /* Repositories */,
 				0582688A2D34F39E00218960 /* Core */,
-				0582688B2D34F3C400218960 /* Search */,
-				05096F812D7A77F300563E91 /* Profile */,
 				0582688E2D35044800218960 /* DTOs */,
+				05096FD12D7EC5E200563E91 /* Repositories */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -352,21 +342,14 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		0582688B2D34F3C400218960 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				058268832D34ECD500218960 /* SearchTarget.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		0582688E2D35044800218960 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
 				05096FDC2D8016DD00563E91 /* Protocols */,
-				0582689D2D350EDE00218960 /* CharacterInfo */,
-				05F681762D4652700030F578 /* Clan */,
-				0582689C2D350EB800218960 /* Search */,
+				058268912D35047900218960 /* CharacterInfoResponseDTO.swift */,
+				05F681772D4652DB0030F578 /* ClanInfoResponseDTO.swift */,
+				05096FC82D7EC14800563E91 /* SearchNicknameResultResponseDTO.swift */,
+				05096FD82D7EDFEA00563E91 /* SearchClanResultResponseDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -379,23 +362,6 @@
 				058266C02D27C48700218960 /* Extensions */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		0582689C2D350EB800218960 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				05096FC82D7EC14800563E91 /* SearchNicknameResultResponseDTO.swift */,
-				05096FD82D7EDFEA00563E91 /* SearchClanResultResponseDTO.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		0582689D2D350EDE00218960 /* CharacterInfo */ = {
-			isa = PBXGroup;
-			children = (
-				058268912D35047900218960 /* CharacterInfoResponseDTO.swift */,
-			);
-			path = CharacterInfo;
 			sourceTree = "<group>";
 		};
 		059C05A12D35869900AA534F /* Domain */ = {
@@ -504,14 +470,6 @@
 				058268752D32CE3500218960 /* ProfileMatchHistoryCell.swift */,
 			);
 			path = Content;
-			sourceTree = "<group>";
-		};
-		05F681762D4652700030F578 /* Clan */ = {
-			isa = PBXGroup;
-			children = (
-				05F681772D4652DB0030F578 /* ClanInfoResponseDTO.swift */,
-			);
-			path = Clan;
 			sourceTree = "<group>";
 		};
 		0D10B9C0A37C6FC5D3E78A9D /* Pods */ = {
