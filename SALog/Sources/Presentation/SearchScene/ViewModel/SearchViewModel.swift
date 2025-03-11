@@ -8,70 +8,150 @@
 import RxCocoa
 import RxSwift
 
-protocol SearchViewModelDelegate: AnyObject {
-    func didUpdateSearchResults()
-    func didEncounterError(_ error: Error)
+protocol SearchViewModelProtocol {
+    func transform(input: SearchViewModel.Input) -> SearchViewModel.Output
 }
 
-final class SearchViewModel {
+final class SearchViewModel: SearchViewModelProtocol {
 
     // MARK: - Properties
 
-    weak var delegate: SearchViewModelDelegate?
-    private let searchService: SearchServiceProtocol
+    private let searchNicknameUseCase: SearchNicknameUseCaseProtocol
+    private let searchClanUseCase: SearchClanUseCaseProtocol
 
-    private(set) var searchNicknameResults: [CharacterInfo] = []
-    private(set) var searchClanNameResults: [Clan] = []
-    private(set) var searchType: SearchType = .nickname
-    private var currentQuery: String = ""
+    private let searchResultsRelay = BehaviorRelay<[SearchResultType]>(value: [])
+    private let isLoadingRelay = BehaviorRelay<Bool>(value: false)
+    private let errorMessageRelay = PublishRelay<String>()
+
+    private let disposeBag = DisposeBag()
 
     // MARK: - Initializer
 
-    init(searchService: SearchServiceProtocol = SearchService()) {
-        self.searchService = searchService
+    init(
+        searchNicknameUseCase: SearchNicknameUseCaseProtocol,
+        searchClanUseCase: SearchClanUseCaseProtocol
+    ) {
+        self.searchNicknameUseCase = searchNicknameUseCase
+        self.searchClanUseCase = searchClanUseCase
+    }
+
+    // MARK: - Input
+
+    struct Input {
+        let searchType: Observable<SearchType>
+        let query: Observable<String>
+    }
+
+    // MARK: - Output
+
+    struct Output {
+        let results: Observable<[SearchResultType]>
+        let isLoading: Observable<Bool>
+        let errorMessage: Observable<String>
     }
 
     // MARK: - Helpers
 
-    func updateSearchType(_ type: SearchType) {
-        searchType = type
-        search(query: currentQuery)
+    func transform(input: Input) -> Output {
+        Observable
+            .combineLatest(
+                input.searchType,
+                input.query.debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            )
+            .do(onNext: { [weak self] _, _ in
+                self?.isLoadingRelay.accept(true)
+            })
+            .flatMapLatest { [weak self] type, query -> Observable<[SearchResultType]> in
+                guard let self = self else { return .just([]) }
+
+                if query.isEmpty {
+                    self.isLoadingRelay.accept(false)
+                    return .just([])
+                }
+
+                self.isLoadingRelay.accept(true)
+
+                return self.fetchSearchResults(type: type, query: query)
+                    .observe(on: MainScheduler.instance)
+                    .do(
+                        onNext: { _ in self.isLoadingRelay.accept(false) },
+                        onError: { _ in self.isLoadingRelay.accept(false) },
+                        onCompleted: { self.isLoadingRelay.accept(false) }
+                    )
+                    .catch { error in
+                        self.errorMessageRelay.accept(error.localizedDescription)
+                        return .just([])
+                    }
+            }
+            .bind(to: searchResultsRelay)
+            .disposed(by: disposeBag)
+
+        return Output(
+            results: searchResultsRelay.asObservable(),
+            isLoading: isLoadingRelay.asObservable(),
+            errorMessage: errorMessageRelay.asObservable()
+        )
     }
 
-    func search(query: String) {
-        currentQuery = query
-        guard !query.isEmpty else {
-            searchNicknameResults = []
-            searchClanNameResults = []
-            delegate?.didUpdateSearchResults()
-            return
+    private func fetchSearchResults(
+        type: SearchType,
+        query: String
+    ) -> Observable<[SearchResultType]> {
+        switch type {
+        case .nickname: return searchNickname(query: query)
+        case .clan:     return searchClan(query: query)
         }
+    }
 
-        switch searchType {
-        case .nickname:
-            searchService.searchByNickname(query) { [weak self] result in
-                guard let self = self else { return }
+    private func searchNickname(query: String) -> Observable<[SearchResultType]> {
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onCompleted()
+                return Disposables.create()
+            }
 
-                switch result {
-                case .success(let characters):
-                    self.searchNicknameResults = characters
-                    self.delegate?.didUpdateSearchResults()
-                case .failure(let error):
-                    self.delegate?.didEncounterError(error)
+            Task {
+                do {
+                    let result = try await self.searchNicknameUseCase.execute(nickname: query)
+                    observer.onNext(result.result.characterInfo.map {
+                        SearchResultType.nickname($0)
+                    })
+
+                    observer.onCompleted()
+                } catch {
+                    self.errorMessageRelay.accept(error.localizedDescription)
+                    observer.onNext([])
+                    observer.onCompleted()
                 }
             }
-        case .clan:
-            searchService.searchByClanName(query) { [weak self] result in
-                guard let self = self else { return }
 
-                switch result {
-                case .success(let clans):
-                    self.searchClanNameResults = clans
-                    self.delegate?.didUpdateSearchResults()
-                case .failure(let error):
-                    self.delegate?.didEncounterError(error)
+            return Disposables.create()
+        }
+    }
+
+    private func searchClan(query: String) -> Observable<[SearchResultType]> {
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onCompleted()
+                return Disposables.create()
+            }
+            
+            Task {
+                do {
+                    let result = try await self.searchClanUseCase.execute(clanName: query)
+                    observer.onNext(result.result.clanInfo.map {
+                        SearchResultType.clan($0)
+                    })
+
+                    observer.onCompleted()
+                } catch {
+                    self.errorMessageRelay.accept(error.localizedDescription)
+                    observer.onNext([])
+                    observer.onCompleted()
                 }
             }
+
+            return Disposables.create()
         }
     }
 }
