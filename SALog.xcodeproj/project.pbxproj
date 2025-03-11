@@ -331,7 +331,7 @@
 				0582688A2D34F39E00218960 /* Core */,
 				0582688B2D34F3C400218960 /* Search */,
 				05096F812D7A77F300563E91 /* Profile */,
-				0582688E2D35044800218960 /* DTO */,
+				0582688E2D35044800218960 /* DTOs */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -353,14 +353,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		0582688E2D35044800218960 /* DTO */ = {
+		0582688E2D35044800218960 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
 				05F681762D4652700030F578 /* Clan */,
 				0582689D2D350EDE00218960 /* CharacterInfo */,
 				0582689C2D350EB800218960 /* Search */,
 			);
-			path = DTO;
+			path = DTOs;
 			sourceTree = "<group>";
 		};
 		0582689B2D350DA000218960 /* Common */ = {
