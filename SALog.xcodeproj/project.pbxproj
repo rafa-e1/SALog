@@ -17,6 +17,7 @@
 		05096FDB2D7EEA0400563E91 /* SearchResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FDA2D7EEA0400563E91 /* SearchResultType.swift */; };
 		05096FDE2D8016E800563E91 /* DomainConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FDD2D8016E800563E91 /* DomainConvertible.swift */; };
 		05096FE02D8018CD00563E91 /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FDF2D8018CD00563E91 /* SearchUseCase.swift */; };
+		05096FE32D801BE400563E91 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05096FE22D801BE400563E91 /* APIEndpoint.swift */; };
 		058266AA2D27BD1500218960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058266A42D27BD1500218960 /* Assets.xcassets */; };
 		058266AC2D27BD1500218960 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 058266A72D27BD1500218960 /* LaunchScreen.storyboard */; };
 		058266AD2D27BD1500218960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058266A32D27BD1500218960 /* AppDelegate.swift */; };
@@ -45,7 +46,7 @@
 		0582687B2D32D9FD00218960 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582687A2D32D9FD00218960 /* ProfileViewModel.swift */; };
 		058268802D34E4F600218960 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582687F2D34E4F600218960 /* NetworkService.swift */; };
 		058268822D34E54500218960 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268812D34E54500218960 /* SearchViewModel.swift */; };
-		058268842D34ECD500218960 /* SearchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268832D34ECD500218960 /* SearchTarget.swift */; };
+		058268842D34ECD500218960 /* SearchEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268832D34ECD500218960 /* SearchEndPoint.swift */; };
 		058268872D34F07000218960 /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268862D34F07000218960 /* NetworkEnvironment.swift */; };
 		058268922D35047900218960 /* CharacterInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268912D35047900218960 /* CharacterInfoResponseDTO.swift */; };
 		058268962D3504A900218960 /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058268952D3504A900218960 /* CharacterInfo.swift */; };
@@ -69,6 +70,7 @@
 		05096FDA2D7EEA0400563E91 /* SearchResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultType.swift; sourceTree = "<group>"; };
 		05096FDD2D8016E800563E91 /* DomainConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertible.swift; sourceTree = "<group>"; };
 		05096FDF2D8018CD00563E91 /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
+		05096FE22D801BE400563E91 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		0582667B2D27BCA000218960 /* SALog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SALog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		058266A32D27BD1500218960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		058266A42D27BD1500218960 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		0582687A2D32D9FD00218960 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		0582687F2D34E4F600218960 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		058268812D34E54500218960 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		058268832D34ECD500218960 /* SearchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTarget.swift; sourceTree = "<group>"; };
+		058268832D34ECD500218960 /* SearchEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEndPoint.swift; sourceTree = "<group>"; };
 		058268852D34EEA000218960 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		058268862D34F07000218960 /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
 		058268912D35047900218960 /* CharacterInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoResponseDTO.swift; sourceTree = "<group>"; };
@@ -155,6 +157,24 @@
 			isa = PBXGroup;
 			children = (
 				05096FDD2D8016E800563E91 /* DomainConvertible.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		05096FE12D801AE500563E91 /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				05096FE42D801C3A00563E91 /* Protocols */,
+				058268832D34ECD500218960 /* SearchEndPoint.swift */,
+				05096F822D7A780200563E91 /* ProfileTarget.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		05096FE42D801C3A00563E91 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				05096FE22D801BE400563E91 /* APIEndpoint.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -328,6 +348,7 @@
 			children = (
 				0582688A2D34F39E00218960 /* Core */,
 				0582688E2D35044800218960 /* DTOs */,
+				05096FE12D801AE500563E91 /* EndPoints */,
 				05096FD12D7EC5E200563E91 /* Repositories */,
 			);
 			path = Network;
@@ -617,7 +638,7 @@
 				058267372D2BDA0C00218960 /* UIButton+.swift in Sources */,
 				058266AD2D27BD1500218960 /* AppDelegate.swift in Sources */,
 				05096FD92D7EDFEA00563E91 /* SearchClanResultResponseDTO.swift in Sources */,
-				058268842D34ECD500218960 /* SearchTarget.swift in Sources */,
+				058268842D34ECD500218960 /* SearchEndPoint.swift in Sources */,
 				0582687B2D32D9FD00218960 /* ProfileViewModel.swift in Sources */,
 				058266AE2D27BD1500218960 /* SceneDelegate.swift in Sources */,
 				05F681752D4651E00030F578 /* ClanInfo.swift in Sources */,
@@ -630,6 +651,7 @@
 				05096FDE2D8016E800563E91 /* DomainConvertible.swift in Sources */,
 				058266C92D27C55A00218960 /* BaseCollectionViewCell.swift in Sources */,
 				058266B82D27BE8400218960 /* SearchViewController.swift in Sources */,
+				05096FE32D801BE400563E91 /* APIEndpoint.swift in Sources */,
 				05096FD52D7EDDDF00563E91 /* SearchClanResult.swift in Sources */,
 				058268722D32CE2200218960 /* ProfileMapLevelCell.swift in Sources */,
 				0582673C2D2D197900218960 /* ProfileImageFullScreenView.swift in Sources */,

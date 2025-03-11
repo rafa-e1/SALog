@@ -17,7 +17,7 @@ final class SearchRepository: SearchRepositoryProtocol {
 
     func searchByNickname(_ nickname: String) async throws -> SearchNicknameResult {
         let response: SearchNicknameResultResponseDTO = try await network.request(
-            SearchTarget.searchByNickname(nickname: nickname)
+            SearchEndPoint.searchByNickname(nickname: nickname)
         )
 
         return response.toDomain()
@@ -25,7 +25,7 @@ final class SearchRepository: SearchRepositoryProtocol {
 
     func searchByClan(_ clanName: String) async throws -> SearchClanResult {
         let response: SearchClanResultResponseDTO = try await network.request(
-            SearchTarget.searchByClan(clanName: clanName)
+            SearchEndPoint.searchByClan(clanName: clanName)
         )
 
         return response.toDomain()

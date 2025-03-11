@@ -1,5 +1,5 @@
 //
-//  SearchTarget.swift
+//  SearchEndPoint.swift
 //  SALog
 //
 //  Created by RAFA on 1/13/25.
@@ -7,12 +7,12 @@
 
 import Moya
 
-enum SearchTarget {
+enum SearchEndPoint {
     case searchByNickname(nickname: String)
     case searchByClan(clanName: String)
 }
 
-extension SearchTarget: TargetType {
+extension SearchEndPoint: APIEndpoint {
 
     var baseURL: URL {
         return URL(string: NetworkEnvironment.baseURL)!
