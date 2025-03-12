@@ -22,6 +22,7 @@ final class SearchViewController: BaseViewController {
     private let tableView = UITableView()
     private let activityIndicatorView = UIActivityIndicatorView(style: .large)
     private let searchTypeRelay = BehaviorRelay<SearchType>(value: .nickname)
+    private let resultSelectionRelay = PublishRelay<SearchResultType>()
 
     // MARK: - Initializer
 
@@ -50,28 +51,29 @@ final class SearchViewController: BaseViewController {
     private func bindViewModel() {
         let input = SearchViewModel.Input(
             searchType: searchTypeRelay.asObservable(),
-            query: searchBar.textField.rx.text.orEmpty.asObservable()
+            query: searchBar.textField.rx.text.orEmpty.asObservable(),
+            selectResult: resultSelectionRelay.asObservable()
         )
 
         let output = viewModel.transform(input: input)
-
-        searchTypeRelay
-            .flatMap { type in
-                output.results.map { results in
-                    results.filter { $0.isMatchingType(type) }
-                }
-            }
+        output.filteredResults
             .bind(to: tableView.rx.items(
                 cellIdentifier: SearchResultCell.identifier,
                 cellType: SearchResultCell.self
             )) { _, item, cell in
-                switch item {
-                case .nickname(let user):
-                    cell.configure(type: .nickname, user: user)
-                case .clan(let clan):
-                    cell.configure(type: .clan, clan: clan)
-                }
+                cell.configure(with: item)
             }
+            .disposed(by: disposeBag)
+
+        searchTypeRelay
+            .distinctUntilChanged()
+            .subscribe { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .disposed(by: disposeBag)
+
+        tableView.rx.modelSelected(SearchResultType.self)
+            .bind(to: resultSelectionRelay)
             .disposed(by: disposeBag)
 
         output.isLoading
@@ -81,32 +83,32 @@ final class SearchViewController: BaseViewController {
         output.errorMessage.bind { [weak self] error in
             let alert = UIAlertController(title: "에러", message: error, preferredStyle: .alert)
             alert.addAction(.init(title: "확인", style: .default))
-            self?.present(alert, animated: true)
+            DispatchQueue.main.async {
+                self?.present(alert, animated: true)
+            }
         }.disposed(by: disposeBag)
 
         nicknameButton.rx.tap
             .bind { [weak self] in
-                guard let self = self,
-                      self.searchTypeRelay.value != .nickname
-                else {
-                    return
-                }
+                guard let self = self else { return }
 
-                self.searchTypeRelay.accept(.nickname)
                 self.updateSearchTypeUI(isNicknameSelected: true)
+
+                if self.searchTypeRelay.value != .nickname {
+                    self.searchTypeRelay.accept(.nickname)
+                }
             }
             .disposed(by: disposeBag)
 
         clanNameButton.rx.tap
             .bind { [weak self] in
-                guard let self = self,
-                      self.searchTypeRelay.value != .clan
-                else {
-                    return
-                }
+                guard let self = self else { return }
 
-                self.searchTypeRelay.accept(.clan)
                 self.updateSearchTypeUI(isNicknameSelected: false)
+
+                if self.searchTypeRelay.value != .clan {
+                    self.searchTypeRelay.accept(.clan)
+                }
             }
             .disposed(by: disposeBag)
     }
