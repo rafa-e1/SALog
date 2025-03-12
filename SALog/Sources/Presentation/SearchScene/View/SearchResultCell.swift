@@ -9,9 +9,11 @@ import UIKit
 
 import Kingfisher
 
-final class SearchResultCell: BaseTableViewCell {
+final class SearchResultCell: BaseTableViewCell, ConfigurableCell {
 
     // MARK: - Properties
+
+    typealias DataType = SearchResultType
 
     private let profileImage = UIImageView()
     private let clanMark1Image = UIImageView()
@@ -20,54 +22,57 @@ final class SearchResultCell: BaseTableViewCell {
 
     // MARK: - Helpers
 
-    func configure(type: SearchType, user: CharacterInfo? = nil, clan: ClanInfo? = nil) {
-        switch type {
-        case .nickname:
-            guard let user = user else { return }
-
-            profileImage.isHidden = false
-            clanMark1Image.isHidden = true
-            clanMark2Image.isHidden = true
-            setProfileImage(from: user.userImageURL)
-            nameLabel.text = user.userNickname
-        case .clan:
-            guard let clan = clan else { return }
-
-            profileImage.isHidden = true
-            clanMark1Image.isHidden = false
-            clanMark2Image.isHidden = false
-            setClanImages(clanMark1: clan.clanMark1, clanMark2: clan.clanMark2)
-            nameLabel.text = clan.clanName
+    func configure(with data: SearchResultType) {
+        switch data {
+        case .nickname(let characterInfo):
+            configureUser(characterInfo)
+        case .clan(let clanInfo):
+            configureClan(clanInfo)
         }
     }
 
-    private func setProfileImage(from urlString: String?) {
-        guard let urlString = urlString, let url = URL(string: urlString) else {
-            profileImage.image = UIImage(systemName: "person")
+    private func configureUser(_ characterInfo: CharacterInfo) {
+        profileImage.isHidden = false
+        clanMark1Image.isHidden = true
+        clanMark2Image.isHidden = true
+
+        guard let url = URL(string: characterInfo.userImageURL) else {
             return
         }
 
         profileImage.kf.setImage(with: url)
+        nameLabel.text = characterInfo.userNickname
     }
 
-    private func setClanImages(
-        clanMark1 clanMark1URLString: String?,
-        clanMark2 clanMark2URLString: String?
-    ) {
-        guard let clanMark1URLString = clanMark1URLString,
-              let clanMark2URLString = clanMark2URLString,
-              let clanMark1 = URL(string: clanMark1URLString),
-              let clanMark2 = URL(string: clanMark2URLString)
+    private func configureClan(_ clanInfo: ClanInfo) {
+        profileImage.isHidden = true
+        clanMark1Image.isHidden = false
+        clanMark2Image.isHidden = false
+
+        guard let clanMark1URL = URL(string: clanInfo.clanMark1),
+              let clanMark2URL = URL(string: clanInfo.clanMark2)
         else {
-            clanMark1Image.image = UIImage(systemName: "person")
             return
         }
 
-        clanMark1Image.kf.setImage(with: clanMark1)
-        clanMark2Image.kf.setImage(with: clanMark2)
+        clanMark1Image.kf.setImage(with: clanMark1URL)
+        clanMark2Image.kf.setImage(with: clanMark2URL)
+        nameLabel.text = clanInfo.clanName
     }
 
     // MARK: - UI
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        profileImage.kf.cancelDownloadTask()
+        clanMark1Image.kf.cancelDownloadTask()
+        clanMark2Image.kf.cancelDownloadTask()
+        profileImage.image = nil
+        clanMark1Image.image = nil
+        clanMark2Image.image = nil
+        nameLabel.text = nil
+    }
 
     override func setStyle() {
         super.setStyle()
