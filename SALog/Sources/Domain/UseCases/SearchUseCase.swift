@@ -8,8 +8,8 @@
 import Foundation
 
 protocol SearchUseCaseProtocol {
-    func searchByNickname(_ nickname: String) async throws -> SearchNicknameResult
-    func searchByClan(_ clanName: String) async throws -> SearchClanResult
+    func searchByNickname(_ nickname: String, page: Int) async throws -> SearchNicknameResult
+    func searchByClan(_ clanName: String, page: Int) async throws -> SearchClanResult
 }
 
 final class SearchUseCase: SearchUseCaseProtocol {
@@ -20,11 +20,11 @@ final class SearchUseCase: SearchUseCaseProtocol {
         self.repository = repository
     }
 
-    func searchByNickname(_ nickname: String) async throws -> SearchNicknameResult {
-        try await repository.searchByNickname(nickname)
+    func searchByNickname(_ nickname: String, page: Int) async throws -> SearchNicknameResult {
+        try await repository.searchByNickname(nickname, page: page)
     }
 
-    func searchByClan(_ clanName: String) async throws -> SearchClanResult {
-        try await repository.searchByClan(clanName)
+    func searchByClan(_ clanName: String, page: Int) async throws -> SearchClanResult {
+        try await repository.searchByClan(clanName, page: page)
     }
 }

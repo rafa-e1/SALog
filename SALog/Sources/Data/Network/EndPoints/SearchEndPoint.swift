@@ -8,8 +8,8 @@
 import Moya
 
 enum SearchEndPoint {
-    case searchByNickname(nickname: String)
-    case searchByClan(clanName: String)
+    case searchByNickname(nickname: String, page: Int)
+    case searchByClan(clanName: String, page: Int)
 }
 
 extension SearchEndPoint: APIEndpoint {
@@ -20,10 +20,10 @@ extension SearchEndPoint: APIEndpoint {
 
     var path: String {
         switch self {
-        case .searchByNickname(let nickname):
-            return "/Search/GetSearchAll/\(nickname)/1"
-        case .searchByClan(let clanName):
-            return "/Search/GetSearchClanAll/\(clanName)/1"
+        case .searchByNickname(let nickname, let page):
+            return "/Search/GetSearchAll/\(nickname)/\(page)"
+        case .searchByClan(let clanName, let page):
+            return "/Search/GetSearchClanAll/\(clanName)/\(page)"
         }
     }
 
