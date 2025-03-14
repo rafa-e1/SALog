@@ -15,14 +15,16 @@ final class SearchViewController: BaseViewController {
 
     private let viewModel: SearchViewModelProtocol
 
+    private let searchTypeRelay = BehaviorRelay<SearchType>(value: .nickname)
+    private let resultSelectionRelay = PublishRelay<SearchResultType>()
+    private let loadNextPageRelay = PublishRelay<Void>()
+
     private let nicknameButton = UIButton()
     private let clanNameButton = UIButton()
     private let radioButtonsStackView = UIStackView()
     private let searchBar = SearchView()
     private let tableView = UITableView()
     private let activityIndicatorView = UIActivityIndicatorView(style: .large)
-    private let searchTypeRelay = BehaviorRelay<SearchType>(value: .nickname)
-    private let resultSelectionRelay = PublishRelay<SearchResultType>()
 
     // MARK: - Initializer
 
@@ -52,7 +54,8 @@ final class SearchViewController: BaseViewController {
         let input = SearchViewModel.Input(
             searchType: searchTypeRelay.asObservable(),
             query: searchBar.textField.rx.text.orEmpty.asObservable(),
-            selectResult: resultSelectionRelay.asObservable()
+            selectResult: resultSelectionRelay.asObservable(),
+            loadNextPage: loadNextPageRelay.asObservable()
         )
 
         let output = viewModel.transform(input: input)
@@ -74,6 +77,18 @@ final class SearchViewController: BaseViewController {
 
         tableView.rx.modelSelected(SearchResultType.self)
             .bind(to: resultSelectionRelay)
+            .disposed(by: disposeBag)
+
+        tableView.rx.willDisplayCell
+            .subscribe(onNext: { [weak self] cell, indexPath in
+                guard let self = self else { return }
+
+                let totalItems = self.tableView.numberOfRows(inSection: indexPath.section)
+
+                if indexPath.row == totalItems - 1 {
+                    self.loadNextPageRelay.accept(())
+                }
+            })
             .disposed(by: disposeBag)
 
         output.isLoading
