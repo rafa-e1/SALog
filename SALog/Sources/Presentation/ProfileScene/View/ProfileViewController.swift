@@ -5,11 +5,16 @@
 //  Created by RAFA on 1/3/25.
 //
 
-import UIKit
+import RxCocoa
+import RxSwift
 
 final class ProfileViewController: BaseViewController {
 
     // MARK: - Properties
+
+    private let viewModel: ProfileViewModelProtocol
+
+    private let selectedTabRelay = BehaviorRelay<ProfileMenuTab>(value: .basicInfo)
 
     private let copyButton = UIButton(type: .system)
     private lazy var collectionView = UICollectionView(
@@ -19,11 +24,10 @@ final class ProfileViewController: BaseViewController {
 
     private let userNickname = "지올"
     private var isTitleSet = false
-    private let viewModel: ProfileViewModel
 
     // MARK: - Initializer
 
-    init(viewModel: ProfileViewModel) {
+    init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -37,7 +41,7 @@ final class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bindings()
+        bindViewModel()
         setNavigationBarStyle()
         setDelegates()
         registerCells()
@@ -51,10 +55,16 @@ final class ProfileViewController: BaseViewController {
 
     // MARK: - Bindings
 
-    private func bindings() {
-        viewModel.onTabChanged = { [weak self] _ in
-            self?.collectionView.reloadData()
-        }
+    private func bindViewModel() {
+        let input = ProfileViewModel.Input(selectTab: selectedTabRelay.asObservable())
+        let output = viewModel.transform(input: input)
+
+        output.selectedTab
+            .bind(onNext: { [weak self] selectedTab in
+                guard let self = self else { return }
+
+                self.collectionView.reloadData()
+            }).disposed(by: disposeBag)
     }
 
     // MARK: - Helpers
