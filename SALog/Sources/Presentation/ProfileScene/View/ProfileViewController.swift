@@ -14,7 +14,8 @@ final class ProfileViewController: BaseViewController {
 
     private let viewModel: ProfileViewModelProtocol
 
-    private let selectedTabRelay = BehaviorRelay<ProfileMenuTab>(value: .basicInfo)
+    private let selectedTabRelay = PublishRelay<ProfileMenuTab>()
+    private var selectedTab: ProfileMenuTab = .basicInfo
 
     private let copyButton = UIButton(type: .system)
     private lazy var collectionView = UICollectionView(
@@ -60,11 +61,14 @@ final class ProfileViewController: BaseViewController {
         let output = viewModel.transform(input: input)
 
         output.selectedTab
-            .bind(onNext: { [weak self] selectedTab in
+            .observe(on: MainScheduler.instance)
+            .bind(onNext: { [weak self] tab in
                 guard let self = self else { return }
 
+                self.selectedTab = tab
                 self.collectionView.reloadData()
-            }).disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Helpers
@@ -185,7 +189,7 @@ extension ProfileViewController: UICollectionViewDataSource {
                 for: indexPath
             )
         } else {
-            switch viewModel.selectedTab {
+            switch selectedTab {
             case .basicInfo:
                 return collectionView.dequeueReusableCell(
                     withReuseIdentifier: ProfileBasicInfoCell.identifier,
@@ -225,7 +229,7 @@ extension ProfileViewController: UICollectionViewDataSource {
             }
 
             header.delegate = self
-            header.configureSelectedTab(viewModel.selectedTab)
+            header.configureSelectedTab(selectedTab)
 
             return header
         }
@@ -320,7 +324,7 @@ private extension ProfileViewController {
 extension ProfileViewController: ProfileMenuTabDelegate {
 
     func didSelectTab(_ cell: ProfileMenuTabReusableView, index: Int) {
-        let selectedTab = ProfileMenuTab.allCases[index]
-        viewModel.changeTab(to: selectedTab)
+        let selected = ProfileMenuTab.allCases[index]
+        selectedTabRelay.accept(selected)
     }
 }

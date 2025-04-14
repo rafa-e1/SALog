@@ -37,15 +37,16 @@ final class ProfileViewModel: ProfileViewModelProtocol {
     // MARK: - Properties
 
     private let selectedTabRelay = BehaviorRelay<ProfileMenuTab>(value: .basicInfo)
-
     private let disposeBag = DisposeBag()
 
     // MARK: - Helpers
 
     func transform(input: ProfileViewModelInput) -> ProfileViewModelOutput {
-        configureTabSelection(from: input)
+        bindTabSelection(input: input)
 
-        return Output(selectedTab: selectedTabRelay.asObservable())
+        return Output(
+              selectedTab: selectedTabRelay.asObservable()
+          )
     }
 }
 
@@ -53,8 +54,9 @@ final class ProfileViewModel: ProfileViewModelProtocol {
 
 private extension ProfileViewModel {
 
-    func configureTabSelection(from input: ProfileViewModelInput) {
+    func bindTabSelection(input: ProfileViewModelInput) {
         input.selectTab
+            .distinctUntilChanged()
             .bind(to: selectedTabRelay)
             .disposed(by: disposeBag)
     }
