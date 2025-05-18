@@ -240,49 +240,49 @@
 		058266B22D27BD8300218960 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				058266B32D27BDC500218960 /* MainTabBarScene */,
-				058266B62D27BE6C00218960 /* SearchScene */,
-				058266BD2D27BEB500218960 /* BlackListScene */,
-				058266BE2D27BEBB00218960 /* ProfileScene */,
+				058266B32D27BDC500218960 /* MainTabBar */,
+				058266B62D27BE6C00218960 /* Search */,
+				058266BD2D27BEB500218960 /* BlackList */,
+				058266BE2D27BEBB00218960 /* Profile */,
 				0582689B2D350DA000218960 /* Common */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		058266B32D27BDC500218960 /* MainTabBarScene */ = {
+		058266B32D27BDC500218960 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
 				058266B42D27BDE800218960 /* MainTabBarController.swift */,
 			);
-			path = MainTabBarScene;
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
-		058266B62D27BE6C00218960 /* SearchScene */ = {
+		058266B62D27BE6C00218960 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				059C05A42D35880000AA534F /* Model */,
 				059C05A62D35880F00AA534F /* View */,
 				059C05A52D35880700AA534F /* ViewModel */,
 			);
-			path = SearchScene;
+			path = Search;
 			sourceTree = "<group>";
 		};
-		058266BD2D27BEB500218960 /* BlackListScene */ = {
+		058266BD2D27BEB500218960 /* BlackList */ = {
 			isa = PBXGroup;
 			children = (
 				059C05A92D35882200AA534F /* View */,
 			);
-			path = BlackListScene;
+			path = BlackList;
 			sourceTree = "<group>";
 		};
-		058266BE2D27BEBB00218960 /* ProfileScene */ = {
+		058266BE2D27BEBB00218960 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				058268772D32D9C200218960 /* Model */,
 				058268782D32D9CD00218960 /* View */,
 				058268792D32D9D900218960 /* ViewModel */,
 			);
-			path = ProfileScene;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		058266C02D27C48700218960 /* Extensions */ = {
@@ -588,9 +588,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SALog/Pods-SALog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SALog/Pods-SALog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
